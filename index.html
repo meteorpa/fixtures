@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=550, initial-scale=1.0">
+    <title>Calendario Mundial 2026</title>
+    <link rel="stylesheet" href="fixtures.css?v=20260608-01">
+    <style>
+* { box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #e8edf2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#worldcup-fixture-widget {
+    width: 550px;
+    height: 1030px;
+    border-radius: 0;
+    background: #f4f7fa;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fixture-topbar {
+    height: 92px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex: 0 0 auto;
+}
+
+.fixture-title {
+    font-size: 25px;
+    line-height: 28px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.fixture-subtitle {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #c9d1d8;
+    font-weight: 700;
+}
+
+.fixture-counter {
+    flex: 0 0 auto;
+    padding: 9px 13px;
+    border-radius: 999px;
+    background: #03a9f4;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.fixture-tabs {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    background: #ffffff;
+    border-bottom: 1px solid #dce3e8;
+    flex: 0 0 auto;
+}
+
+.fixture-tab {
+    height: 34px;
+    min-width: 92px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #edf2f5;
+    color: #5f6a72;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.fixture-tab.active {
+    background: #03a9f4;
+    color: #ffffff;
+}
+
+#fixture-scroll {
+    flex: 1 1 auto;
+    padding: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: #f3f6f8;
+}
+
+#fixture-scroll::-webkit-scrollbar { width: 8px; }
+#fixture-scroll::-webkit-scrollbar-track { background: #edf1f4; }
+#fixture-scroll::-webkit-scrollbar-thumb { background: #b5c0c8; border-radius: 999px; }
+
+.fixture-group {
+    margin-bottom: 14px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d9e1e7;
+    box-shadow: 0 5px 14px rgba(20,31,43,0.08);
+}
+
+.fixture-group-header {
+    min-height: 43px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: linear-gradient(180deg, #edf3f7 0%, #e3ebf1 100%);
+    color: #20282e;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.fixture-group-header strong {
+    flex: 0 0 auto;
+    color: #69747c;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.game-card {
+    min-height: 74px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr);
+    align-items: center;
+    padding: 0 12px;
+    background: #ffffff;
+    border-top: 1px solid #edf1f4;
+}
+
+.game-card:nth-child(odd) {
+    background: #fbfcfd;
+}
+
+.team {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #1f252b;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 900;
+}
+
+.team-home {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.team-away {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.team-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.team-badge {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 25%, #ffffff 0%, #d9e8f1 45%, #9fb6c5 100%);
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(20,31,43,0.22);
+    color: #25313b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
+
+.match-time {
+    height: 40px;
+    min-width: 66px;
+    margin: 0 auto;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: #1f252b;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
+</style>
+</head>
+<body>
+    <div id="worldcup-fixture-widget">
+        <div class="fixture-topbar">
+            <div>
+                <div class="fixture-title">Mundial 2026</div>
+                <div class="fixture-subtitle">Fase de grupos · Calendario completo</div>
+            </div>
+            <div class="fixture-counter">72 partidos</div>
+        </div>
+        <div class="fixture-tabs">
+            <span class="fixture-tab active">Todos</span>
+            <span class="fixture-tab">Fecha 1</span>
+            <span class="fixture-tab">Fecha 2</span>
+            <span class="fixture-tab">Fecha 3</span>
+        </div>
+        <div id="fixture-scroll">
+            
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo A · Fecha 1</span>
+            <strong>11/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">México</span>
+                <span class="team-badge">MÉX</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUD</span>
+                <span class="team-name">Sudáfrica</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Corea del Sur</span>
+                <span class="team-badge">CDS</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CHE</span>
+                <span class="team-name">República Checa</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo B · Fecha 1</span>
+            <strong>12/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Canadá</span>
+                <span class="team-badge">CAN</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">BH</span>
+                <span class="team-name">Bosnia Herz.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo D · Fecha 1</span>
+            <strong>12/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Estados Unidos</span>
+                <span class="team-badge">USA</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">PAR</span>
+                <span class="team-name">Paraguay</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo B · Fecha 1</span>
+            <strong>13/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Qatar</span>
+                <span class="team-badge">QAT</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUI</span>
+                <span class="team-name">Suiza</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo C · Fecha 1</span>
+            <strong>13/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Brasil</span>
+                <span class="team-badge">BRA</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">MAR</span>
+                <span class="team-name">Marruecos</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Haití</span>
+                <span class="team-badge">HAI</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ESC</span>
+                <span class="team-name">Escocia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo D · Fecha 1</span>
+            <strong>14/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Australia</span>
+                <span class="team-badge">AUS</span>
+            </div>
+            <div class="match-time">00:00</div>
+            <div class="team team-away">
+                <span class="team-badge">TUR</span>
+                <span class="team-name">Turquía</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo E · Fecha 1</span>
+            <strong>14/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Alemania</span>
+                <span class="team-badge">ALE</span>
+            </div>
+            <div class="match-time">13:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CUR</span>
+                <span class="team-name">Curazao</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Costa de Marfil</span>
+                <span class="team-badge">CM</span>
+            </div>
+            <div class="match-time">19:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ECU</span>
+                <span class="team-name">Ecuador</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo F · Fecha 1</span>
+            <strong>14/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Países Bajos</span>
+                <span class="team-badge">PB</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">JAP</span>
+                <span class="team-name">Japón</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Túnez</span>
+                <span class="team-badge">TUN</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUE</span>
+                <span class="team-name">Suecia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo H · Fecha 1</span>
+            <strong>15/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">España</span>
+                <span class="team-badge">ESP</span>
+            </div>
+            <div class="match-time">12:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CV</span>
+                <span class="team-name">Cabo Verde</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Arabia Saudita</span>
+                <span class="team-badge">AS</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">URU</span>
+                <span class="team-name">Uruguay</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo G · Fecha 1</span>
+            <strong>15/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Bélgica</span>
+                <span class="team-badge">BEL</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">EGI</span>
+                <span class="team-name">Egipto</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Irán</span>
+                <span class="team-badge">IRN</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">NZ</span>
+                <span class="team-name">Nueva Zelanda</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo I · Fecha 1</span>
+            <strong>16/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Francia</span>
+                <span class="team-badge">FRA</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SEN</span>
+                <span class="team-name">Senegal</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Irak</span>
+                <span class="team-badge">IRK</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">NOR</span>
+                <span class="team-name">Noruega</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Argentina</span>
+                <span class="team-badge">ARG</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ALG</span>
+                <span class="team-name">Argelia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo J/K/L · Fecha 1</span>
+            <strong>17/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Austria</span>
+                <span class="team-badge">AUT</span>
+            </div>
+            <div class="match-time">00:00</div>
+            <div class="team team-away">
+                <span class="team-badge">JOR</span>
+                <span class="team-name">Jordania</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Portugal</span>
+                <span class="team-badge">POR</span>
+            </div>
+            <div class="match-time">13:00</div>
+            <div class="team team-away">
+                <span class="team-badge">RDC</span>
+                <span class="team-name">RD Congo</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Inglaterra</span>
+                <span class="team-badge">ING</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CRO</span>
+                <span class="team-name">Croacia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Ghana</span>
+                <span class="team-badge">GHA</span>
+            </div>
+            <div class="match-time">19:00</div>
+            <div class="team team-away">
+                <span class="team-badge">PAN</span>
+                <span class="team-name">Panamá</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Uzbekistán</span>
+                <span class="team-badge">UZB</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">COL</span>
+                <span class="team-name">Colombia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo A/B · Fecha 2</span>
+            <strong>18/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">República Checa</span>
+                <span class="team-badge">CHE</span>
+            </div>
+            <div class="match-time">12:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUD</span>
+                <span class="team-name">Sudáfrica</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Suiza</span>
+                <span class="team-badge">SUI</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">BH</span>
+                <span class="team-name">Bosnia Herz.</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Canadá</span>
+                <span class="team-badge">CAN</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">QAT</span>
+                <span class="team-name">Qatar</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">México</span>
+                <span class="team-badge">MÉX</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CDS</span>
+                <span class="team-name">Corea del Sur</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo C/D · Fecha 2</span>
+            <strong>19/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Estados Unidos</span>
+                <span class="team-badge">USA</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AUS</span>
+                <span class="team-name">Australia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Escocia</span>
+                <span class="team-badge">ESC</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">MAR</span>
+                <span class="team-name">Marruecos</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Brasil</span>
+                <span class="team-badge">BRA</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">HAI</span>
+                <span class="team-name">Haití</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo D/E/F · Fecha 2</span>
+            <strong>20/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Turquía</span>
+                <span class="team-badge">TUR</span>
+            </div>
+            <div class="match-time">00:00</div>
+            <div class="team team-away">
+                <span class="team-badge">PAR</span>
+                <span class="team-name">Paraguay</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Países Bajos</span>
+                <span class="team-badge">PB</span>
+            </div>
+            <div class="match-time">13:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUE</span>
+                <span class="team-name">Suecia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Alemania</span>
+                <span class="team-badge">ALE</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CM</span>
+                <span class="team-name">Costa de Marfil</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Ecuador</span>
+                <span class="team-badge">ECU</span>
+            </div>
+            <div class="match-time">20:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CUR</span>
+                <span class="team-name">Curazao</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo F/G/H · Fecha 2</span>
+            <strong>21/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Túnez</span>
+                <span class="team-badge">TUN</span>
+            </div>
+            <div class="match-time">00:00</div>
+            <div class="team team-away">
+                <span class="team-badge">JAP</span>
+                <span class="team-name">Japón</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">España</span>
+                <span class="team-badge">ESP</span>
+            </div>
+            <div class="match-time">12:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AS</span>
+                <span class="team-name">Arabia Saudita</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Bélgica</span>
+                <span class="team-badge">BEL</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">IRN</span>
+                <span class="team-name">Irán</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Uruguay</span>
+                <span class="team-badge">URU</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CV</span>
+                <span class="team-name">Cabo Verde</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Nueva Zelanda</span>
+                <span class="team-badge">NZ</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">EGI</span>
+                <span class="team-name">Egipto</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo I/J · Fecha 2</span>
+            <strong>22/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Argentina</span>
+                <span class="team-badge">ARG</span>
+            </div>
+            <div class="match-time">13:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AUT</span>
+                <span class="team-name">Austria</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Francia</span>
+                <span class="team-badge">FRA</span>
+            </div>
+            <div class="match-time">17:00</div>
+            <div class="team team-away">
+                <span class="team-badge">IRK</span>
+                <span class="team-name">Irak</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Noruega</span>
+                <span class="team-badge">NOR</span>
+            </div>
+            <div class="match-time">20:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SEN</span>
+                <span class="team-name">Senegal</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Jordania</span>
+                <span class="team-badge">JOR</span>
+            </div>
+            <div class="match-time">23:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ALG</span>
+                <span class="team-name">Argelia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo K/L · Fecha 2</span>
+            <strong>23/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Portugal</span>
+                <span class="team-badge">POR</span>
+            </div>
+            <div class="match-time">13:00</div>
+            <div class="team team-away">
+                <span class="team-badge">UZB</span>
+                <span class="team-name">Uzbekistán</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Inglaterra</span>
+                <span class="team-badge">ING</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">GHA</span>
+                <span class="team-name">Ghana</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Panamá</span>
+                <span class="team-badge">PAN</span>
+            </div>
+            <div class="match-time">19:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CRO</span>
+                <span class="team-name">Croacia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Colombia</span>
+                <span class="team-badge">COL</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">RDC</span>
+                <span class="team-name">RD Congo</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo A/B/C · Fecha 3</span>
+            <strong>24/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Suiza</span>
+                <span class="team-badge">SUI</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CAN</span>
+                <span class="team-name">Canadá</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Bosnia Herz.</span>
+                <span class="team-badge">BH</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">QAT</span>
+                <span class="team-name">Qatar</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Brasil</span>
+                <span class="team-badge">BRA</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ESC</span>
+                <span class="team-name">Escocia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Marruecos</span>
+                <span class="team-badge">MAR</span>
+            </div>
+            <div class="match-time">18:00</div>
+            <div class="team team-away">
+                <span class="team-badge">HAI</span>
+                <span class="team-name">Haití</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">México</span>
+                <span class="team-badge">MÉX</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CHE</span>
+                <span class="team-name">República Checa</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Corea del Sur</span>
+                <span class="team-badge">CDS</span>
+            </div>
+            <div class="match-time">21:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUD</span>
+                <span class="team-name">Sudáfrica</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo D/E/F · Fecha 3</span>
+            <strong>25/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Ecuador</span>
+                <span class="team-badge">ECU</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ALE</span>
+                <span class="team-name">Alemania</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Curazao</span>
+                <span class="team-badge">CUR</span>
+            </div>
+            <div class="match-time">16:00</div>
+            <div class="team team-away">
+                <span class="team-badge">CM</span>
+                <span class="team-name">Costa de Marfil</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Túnez</span>
+                <span class="team-badge">TUN</span>
+            </div>
+            <div class="match-time">19:00</div>
+            <div class="team team-away">
+                <span class="team-badge">PB</span>
+                <span class="team-name">Países Bajos</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Japón</span>
+                <span class="team-badge">JAP</span>
+            </div>
+            <div class="match-time">19:00</div>
+            <div class="team team-away">
+                <span class="team-badge">SUE</span>
+                <span class="team-name">Suecia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Estados Unidos</span>
+                <span class="team-badge">USA</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">TUR</span>
+                <span class="team-name">Turquía</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Paraguay</span>
+                <span class="team-badge">PAR</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AUS</span>
+                <span class="team-name">Australia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo G/H/I · Fecha 3</span>
+            <strong>26/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Noruega</span>
+                <span class="team-badge">NOR</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">FRA</span>
+                <span class="team-name">Francia</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Senegal</span>
+                <span class="team-badge">SEN</span>
+            </div>
+            <div class="match-time">15:00</div>
+            <div class="team team-away">
+                <span class="team-badge">IRK</span>
+                <span class="team-name">Irak</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Uruguay</span>
+                <span class="team-badge">URU</span>
+            </div>
+            <div class="match-time">20:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ESP</span>
+                <span class="team-name">España</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Cabo Verde</span>
+                <span class="team-badge">CV</span>
+            </div>
+            <div class="match-time">20:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AS</span>
+                <span class="team-name">Arabia Saudita</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Nueva Zelanda</span>
+                <span class="team-badge">NZ</span>
+            </div>
+            <div class="match-time">23:00</div>
+            <div class="team team-away">
+                <span class="team-badge">BEL</span>
+                <span class="team-name">Bélgica</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Egipto</span>
+                <span class="team-badge">EGI</span>
+            </div>
+            <div class="match-time">23:00</div>
+            <div class="team team-away">
+                <span class="team-badge">IRN</span>
+                <span class="team-name">Irán</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="fixture-group">
+        <div class="fixture-group-header">
+            <span>Grupo J/K/L · Fecha 3</span>
+            <strong>27/06/2026</strong>
+        </div>
+        
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Panamá</span>
+                <span class="team-badge">PAN</span>
+            </div>
+            <div class="match-time">17:00</div>
+            <div class="team team-away">
+                <span class="team-badge">ING</span>
+                <span class="team-name">Inglaterra</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Croacia</span>
+                <span class="team-badge">CRO</span>
+            </div>
+            <div class="match-time">17:00</div>
+            <div class="team team-away">
+                <span class="team-badge">GHA</span>
+                <span class="team-name">Ghana</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Colombia</span>
+                <span class="team-badge">COL</span>
+            </div>
+            <div class="match-time">19:30</div>
+            <div class="team team-away">
+                <span class="team-badge">POR</span>
+                <span class="team-name">Portugal</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">RD Congo</span>
+                <span class="team-badge">RDC</span>
+            </div>
+            <div class="match-time">19:30</div>
+            <div class="team team-away">
+                <span class="team-badge">UZB</span>
+                <span class="team-name">Uzbekistán</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Argentina</span>
+                <span class="team-badge">ARG</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">JOR</span>
+                <span class="team-name">Jordania</span>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="team team-home">
+                <span class="team-name">Argelia</span>
+                <span class="team-badge">ALG</span>
+            </div>
+            <div class="match-time">22:00</div>
+            <div class="team team-away">
+                <span class="team-badge">AUT</span>
+                <span class="team-name">Austria</span>
+            </div>
+        </div>
+    </section>
+        </div>
+    </div>
+
+    <script>
+        function scrollWorldCupWidget() {
+            const el = document.getElementById('fixture-scroll');
+            if (!el) return;
+
+            const maxScroll = el.scrollHeight - el.clientHeight;
+            if (maxScroll <= 0) return;
+
+            if (el.scrollTop + 520 >= maxScroll) {
+                el.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                el.scrollBy({ top: 520, behavior: 'smooth' });
+            }
+        }
+
+        setInterval(scrollWorldCupWidget, 60000);
+    </script>
+</body>
+</html>
