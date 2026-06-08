@@ -7,7 +7,7 @@
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=550, initial-scale=1.0">
     <title>Calendario Mundial 2026</title>
-    <link rel="stylesheet" href="fixtures.css?v=20260608-flags-01">
+    <link rel="stylesheet" href="fixtures.css?v=20260608-flags-img-01">
     <style>
 * { box-sizing: border-box; }
 
@@ -184,21 +184,15 @@ html, body {
     white-space: nowrap;
 }
 
-.team-badge {
+.team-flag-img {
     width: 34px;
     height: 34px;
     flex: 0 0 34px;
     border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at 30% 25%, #ffffff 0%, #d9e8f1 45%, #9fb6c5 100%);
+    object-fit: cover;
+    background: #ffffff;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 6px rgba(20,31,43,0.22);
-    color: #25313b;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 0.2px;
 }
 
 .match-time {
@@ -216,42 +210,6 @@ html, body {
     font-weight: 900;
     letter-spacing: 0.2px;
 }
-
-/* Banderas livianas con emojis: no carga imágenes externas */
-.team-badge {
-    width: auto;
-    height: 20px;
-    min-width: 30px;
-    flex: 0 0 auto;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #e8f0f5;
-    border: 1px solid #d3dde5;
-    box-shadow: none;
-    color: #3a4650;
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 0.2px;
-    padding: 0 5px;
-}
-
-.team-flag {
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 6px rgba(20,31,43,0.22);
-    font-size: 22px;
-    line-height: 1;
-}
-
 </style>
 </head>
 <body>
@@ -280,27 +238,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUD</span>
-                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
+                <span class="team-name">Sudáfrica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Corea del Sur</span>
-                <span class="team-flag">🇰🇷</span><span class="team-badge">CDS</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">CHE</span>
-                <span class="team-flag">🇨🇿</span><span class="team-name">República Checa</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
+                <span class="team-name">República Checa</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo B · Fecha 1</span>
@@ -310,16 +267,15 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Canadá</span>
-                <span class="team-flag">🇨🇦</span><span class="team-badge">CAN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">BH</span>
-                <span class="team-flag">🇧🇦</span><span class="team-name">Bosnia Herz.</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
+                <span class="team-name">Bosnia Herz.</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo D · Fecha 1</span>
@@ -329,16 +285,15 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">PAR</span>
-                <span class="team-flag">🇵🇾</span><span class="team-name">Paraguay</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
+                <span class="team-name">Paraguay</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo B · Fecha 1</span>
@@ -348,16 +303,15 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Qatar</span>
-                <span class="team-flag">🇶🇦</span><span class="team-badge">QAT</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUI</span>
-                <span class="team-flag">🇨🇭</span><span class="team-name">Suiza</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
+                <span class="team-name">Suiza</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo C · Fecha 1</span>
@@ -367,27 +321,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">MAR</span>
-                <span class="team-flag">🇲🇦</span><span class="team-name">Marruecos</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
+                <span class="team-name">Marruecos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Haití</span>
-                <span class="team-flag">🇭🇹</span><span class="team-badge">HAI</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">ESC</span>
-                <span class="team-flag">🏴</span><span class="team-name">Escocia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
+                <span class="team-name">Escocia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo D · Fecha 1</span>
@@ -397,16 +350,15 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Australia</span>
-                <span class="team-flag">🇦🇺</span><span class="team-badge">AUS</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
-                <span class="team-badge">TUR</span>
-                <span class="team-flag">🇹🇷</span><span class="team-name">Turquía</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
+                <span class="team-name">Turquía</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo E · Fecha 1</span>
@@ -416,27 +368,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Alemania</span>
-                <span class="team-flag">🇩🇪</span><span class="team-badge">ALE</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
-                <span class="team-badge">CUR</span>
-                <span class="team-flag">🇨🇼</span><span class="team-name">Curazao</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
+                <span class="team-name">Curazao</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Costa de Marfil</span>
-                <span class="team-flag">🇨🇮</span><span class="team-badge">CM</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
-                <span class="team-badge">ECU</span>
-                <span class="team-flag">🇪🇨</span><span class="team-name">Ecuador</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
+                <span class="team-name">Ecuador</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo F · Fecha 1</span>
@@ -446,27 +397,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Países Bajos</span>
-                <span class="team-flag">🇳🇱</span><span class="team-badge">PB</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">JAP</span>
-                <span class="team-flag">🇯🇵</span><span class="team-name">Japón</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
+                <span class="team-name">Japón</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUE</span>
-                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
+                <span class="team-name">Suecia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo H · Fecha 1</span>
@@ -476,27 +426,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">España</span>
-                <span class="team-flag">🇪🇸</span><span class="team-badge">ESP</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
-                <span class="team-badge">CV</span>
-                <span class="team-flag">🇨🇻</span><span class="team-name">Cabo Verde</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
+                <span class="team-name">Cabo Verde</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Arabia Saudita</span>
-                <span class="team-flag">🇸🇦</span><span class="team-badge">AS</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">URU</span>
-                <span class="team-flag">🇺🇾</span><span class="team-name">Uruguay</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
+                <span class="team-name">Uruguay</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo G · Fecha 1</span>
@@ -506,27 +455,26 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bélgica</span>
-                <span class="team-flag">🇧🇪</span><span class="team-badge">BEL</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">EGI</span>
-                <span class="team-flag">🇪🇬</span><span class="team-name">Egipto</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
+                <span class="team-name">Egipto</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Irán</span>
-                <span class="team-flag">🇮🇷</span><span class="team-badge">IRN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">NZ</span>
-                <span class="team-flag">🇳🇿</span><span class="team-name">Nueva Zelanda</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
+                <span class="team-name">Nueva Zelanda</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo I · Fecha 1</span>
@@ -536,38 +484,37 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Francia</span>
-                <span class="team-flag">🇫🇷</span><span class="team-badge">FRA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">SEN</span>
-                <span class="team-flag">🇸🇳</span><span class="team-name">Senegal</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
+                <span class="team-name">Senegal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Irak</span>
-                <span class="team-flag">🇮🇶</span><span class="team-badge">IRK</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">NOR</span>
-                <span class="team-flag">🇳🇴</span><span class="team-name">Noruega</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
+                <span class="team-name">Noruega</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">ALG</span>
-                <span class="team-flag">🇩🇿</span><span class="team-name">Argelia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
+                <span class="team-name">Argelia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo J/K/L · Fecha 1</span>
@@ -577,60 +524,59 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Austria</span>
-                <span class="team-flag">🇦🇹</span><span class="team-badge">AUT</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
-                <span class="team-badge">JOR</span>
-                <span class="team-flag">🇯🇴</span><span class="team-name">Jordania</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
+                <span class="team-name">Jordania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Portugal</span>
-                <span class="team-flag">🇵🇹</span><span class="team-badge">POR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
-                <span class="team-badge">RDC</span>
-                <span class="team-flag">🇨🇩</span><span class="team-name">RD Congo</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
+                <span class="team-name">RD Congo</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Inglaterra</span>
-                <span class="team-flag">🏴</span><span class="team-badge">ING</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">CRO</span>
-                <span class="team-flag">🇭🇷</span><span class="team-name">Croacia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
+                <span class="team-name">Croacia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ghana</span>
-                <span class="team-flag">🇬🇭</span><span class="team-badge">GHA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
-                <span class="team-badge">PAN</span>
-                <span class="team-flag">🇵🇦</span><span class="team-name">Panamá</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
+                <span class="team-name">Panamá</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uzbekistán</span>
-                <span class="team-flag">🇺🇿</span><span class="team-badge">UZB</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">COL</span>
-                <span class="team-flag">🇨🇴</span><span class="team-name">Colombia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
+                <span class="team-name">Colombia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo A/B · Fecha 2</span>
@@ -640,49 +586,48 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">República Checa</span>
-                <span class="team-flag">🇨🇿</span><span class="team-badge">CHE</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUD</span>
-                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
+                <span class="team-name">Sudáfrica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Suiza</span>
-                <span class="team-flag">🇨🇭</span><span class="team-badge">SUI</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">BH</span>
-                <span class="team-flag">🇧🇦</span><span class="team-name">Bosnia Herz.</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
+                <span class="team-name">Bosnia Herz.</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Canadá</span>
-                <span class="team-flag">🇨🇦</span><span class="team-badge">CAN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">QAT</span>
-                <span class="team-flag">🇶🇦</span><span class="team-name">Qatar</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
+                <span class="team-name">Qatar</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">CDS</span>
-                <span class="team-flag">🇰🇷</span><span class="team-name">Corea del Sur</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
+                <span class="team-name">Corea del Sur</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo C/D · Fecha 2</span>
@@ -692,38 +637,37 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">AUS</span>
-                <span class="team-flag">🇦🇺</span><span class="team-name">Australia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
+                <span class="team-name">Australia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Escocia</span>
-                <span class="team-flag">🏴</span><span class="team-badge">ESC</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">MAR</span>
-                <span class="team-flag">🇲🇦</span><span class="team-name">Marruecos</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
+                <span class="team-name">Marruecos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">HAI</span>
-                <span class="team-flag">🇭🇹</span><span class="team-name">Haití</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
+                <span class="team-name">Haití</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo D/E/F · Fecha 2</span>
@@ -733,49 +677,48 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Turquía</span>
-                <span class="team-flag">🇹🇷</span><span class="team-badge">TUR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
-                <span class="team-badge">PAR</span>
-                <span class="team-flag">🇵🇾</span><span class="team-name">Paraguay</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
+                <span class="team-name">Paraguay</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Países Bajos</span>
-                <span class="team-flag">🇳🇱</span><span class="team-badge">PB</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUE</span>
-                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
+                <span class="team-name">Suecia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Alemania</span>
-                <span class="team-flag">🇩🇪</span><span class="team-badge">ALE</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">CM</span>
-                <span class="team-flag">🇨🇮</span><span class="team-name">Costa de Marfil</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
+                <span class="team-name">Costa de Marfil</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ecuador</span>
-                <span class="team-flag">🇪🇨</span><span class="team-badge">ECU</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
-                <span class="team-badge">CUR</span>
-                <span class="team-flag">🇨🇼</span><span class="team-name">Curazao</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
+                <span class="team-name">Curazao</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo F/G/H · Fecha 2</span>
@@ -785,60 +728,59 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
-                <span class="team-badge">JAP</span>
-                <span class="team-flag">🇯🇵</span><span class="team-name">Japón</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
+                <span class="team-name">Japón</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">España</span>
-                <span class="team-flag">🇪🇸</span><span class="team-badge">ESP</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
-                <span class="team-badge">AS</span>
-                <span class="team-flag">🇸🇦</span><span class="team-name">Arabia Saudita</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
+                <span class="team-name">Arabia Saudita</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bélgica</span>
-                <span class="team-flag">🇧🇪</span><span class="team-badge">BEL</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">IRN</span>
-                <span class="team-flag">🇮🇷</span><span class="team-name">Irán</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
+                <span class="team-name">Irán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uruguay</span>
-                <span class="team-flag">🇺🇾</span><span class="team-badge">URU</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">CV</span>
-                <span class="team-flag">🇨🇻</span><span class="team-name">Cabo Verde</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
+                <span class="team-name">Cabo Verde</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Nueva Zelanda</span>
-                <span class="team-flag">🇳🇿</span><span class="team-badge">NZ</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">EGI</span>
-                <span class="team-flag">🇪🇬</span><span class="team-name">Egipto</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
+                <span class="team-name">Egipto</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo I/J · Fecha 2</span>
@@ -848,49 +790,48 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
-                <span class="team-badge">AUT</span>
-                <span class="team-flag">🇦🇹</span><span class="team-name">Austria</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
+                <span class="team-name">Austria</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Francia</span>
-                <span class="team-flag">🇫🇷</span><span class="team-badge">FRA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
-                <span class="team-badge">IRK</span>
-                <span class="team-flag">🇮🇶</span><span class="team-name">Irak</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
+                <span class="team-name">Irak</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Noruega</span>
-                <span class="team-flag">🇳🇴</span><span class="team-badge">NOR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
-                <span class="team-badge">SEN</span>
-                <span class="team-flag">🇸🇳</span><span class="team-name">Senegal</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
+                <span class="team-name">Senegal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Jordania</span>
-                <span class="team-flag">🇯🇴</span><span class="team-badge">JOR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
-                <span class="team-badge">ALG</span>
-                <span class="team-flag">🇩🇿</span><span class="team-name">Argelia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
+                <span class="team-name">Argelia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo K/L · Fecha 2</span>
@@ -900,49 +841,48 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Portugal</span>
-                <span class="team-flag">🇵🇹</span><span class="team-badge">POR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
-                <span class="team-badge">UZB</span>
-                <span class="team-flag">🇺🇿</span><span class="team-name">Uzbekistán</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
+                <span class="team-name">Uzbekistán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Inglaterra</span>
-                <span class="team-flag">🏴</span><span class="team-badge">ING</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">GHA</span>
-                <span class="team-flag">🇬🇭</span><span class="team-name">Ghana</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
+                <span class="team-name">Ghana</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Panamá</span>
-                <span class="team-flag">🇵🇦</span><span class="team-badge">PAN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
-                <span class="team-badge">CRO</span>
-                <span class="team-flag">🇭🇷</span><span class="team-name">Croacia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
+                <span class="team-name">Croacia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Colombia</span>
-                <span class="team-flag">🇨🇴</span><span class="team-badge">COL</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">RDC</span>
-                <span class="team-flag">🇨🇩</span><span class="team-name">RD Congo</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
+                <span class="team-name">RD Congo</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo A/B/C · Fecha 3</span>
@@ -952,71 +892,70 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Suiza</span>
-                <span class="team-flag">🇨🇭</span><span class="team-badge">SUI</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">CAN</span>
-                <span class="team-flag">🇨🇦</span><span class="team-name">Canadá</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
+                <span class="team-name">Canadá</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bosnia Herz.</span>
-                <span class="team-flag">🇧🇦</span><span class="team-badge">BH</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">QAT</span>
-                <span class="team-flag">🇶🇦</span><span class="team-name">Qatar</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
+                <span class="team-name">Qatar</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">ESC</span>
-                <span class="team-flag">🏴</span><span class="team-name">Escocia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
+                <span class="team-name">Escocia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Marruecos</span>
-                <span class="team-flag">🇲🇦</span><span class="team-badge">MAR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
-                <span class="team-badge">HAI</span>
-                <span class="team-flag">🇭🇹</span><span class="team-name">Haití</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
+                <span class="team-name">Haití</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">CHE</span>
-                <span class="team-flag">🇨🇿</span><span class="team-name">República Checa</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
+                <span class="team-name">República Checa</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Corea del Sur</span>
-                <span class="team-flag">🇰🇷</span><span class="team-badge">CDS</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUD</span>
-                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
+                <span class="team-name">Sudáfrica</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo D/E/F · Fecha 3</span>
@@ -1026,71 +965,70 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ecuador</span>
-                <span class="team-flag">🇪🇨</span><span class="team-badge">ECU</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">ALE</span>
-                <span class="team-flag">🇩🇪</span><span class="team-name">Alemania</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
+                <span class="team-name">Alemania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Curazao</span>
-                <span class="team-flag">🇨🇼</span><span class="team-badge">CUR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
-                <span class="team-badge">CM</span>
-                <span class="team-flag">🇨🇮</span><span class="team-name">Costa de Marfil</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
+                <span class="team-name">Costa de Marfil</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
-                <span class="team-badge">PB</span>
-                <span class="team-flag">🇳🇱</span><span class="team-name">Países Bajos</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
+                <span class="team-name">Países Bajos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Japón</span>
-                <span class="team-flag">🇯🇵</span><span class="team-badge">JAP</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
-                <span class="team-badge">SUE</span>
-                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
+                <span class="team-name">Suecia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">TUR</span>
-                <span class="team-flag">🇹🇷</span><span class="team-name">Turquía</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
+                <span class="team-name">Turquía</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Paraguay</span>
-                <span class="team-flag">🇵🇾</span><span class="team-badge">PAR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">AUS</span>
-                <span class="team-flag">🇦🇺</span><span class="team-name">Australia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
+                <span class="team-name">Australia</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo G/H/I · Fecha 3</span>
@@ -1100,71 +1038,70 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Noruega</span>
-                <span class="team-flag">🇳🇴</span><span class="team-badge">NOR</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">FRA</span>
-                <span class="team-flag">🇫🇷</span><span class="team-name">Francia</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
+                <span class="team-name">Francia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Senegal</span>
-                <span class="team-flag">🇸🇳</span><span class="team-badge">SEN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
-                <span class="team-badge">IRK</span>
-                <span class="team-flag">🇮🇶</span><span class="team-name">Irak</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
+                <span class="team-name">Irak</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uruguay</span>
-                <span class="team-flag">🇺🇾</span><span class="team-badge">URU</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
-                <span class="team-badge">ESP</span>
-                <span class="team-flag">🇪🇸</span><span class="team-name">España</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
+                <span class="team-name">España</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Cabo Verde</span>
-                <span class="team-flag">🇨🇻</span><span class="team-badge">CV</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
-                <span class="team-badge">AS</span>
-                <span class="team-flag">🇸🇦</span><span class="team-name">Arabia Saudita</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
+                <span class="team-name">Arabia Saudita</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Nueva Zelanda</span>
-                <span class="team-flag">🇳🇿</span><span class="team-badge">NZ</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
-                <span class="team-badge">BEL</span>
-                <span class="team-flag">🇧🇪</span><span class="team-name">Bélgica</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
+                <span class="team-name">Bélgica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Egipto</span>
-                <span class="team-flag">🇪🇬</span><span class="team-badge">EGI</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
-                <span class="team-badge">IRN</span>
-                <span class="team-flag">🇮🇷</span><span class="team-name">Irán</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
+                <span class="team-name">Irán</span>
             </div>
         </div>
     </section>
-
     <section class="fixture-group">
         <div class="fixture-group-header">
             <span>Grupo J/K/L · Fecha 3</span>
@@ -1174,67 +1111,67 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Panamá</span>
-                <span class="team-flag">🇵🇦</span><span class="team-badge">PAN</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
-                <span class="team-badge">ING</span>
-                <span class="team-flag">🏴</span><span class="team-name">Inglaterra</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
+                <span class="team-name">Inglaterra</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Croacia</span>
-                <span class="team-flag">🇭🇷</span><span class="team-badge">CRO</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
-                <span class="team-badge">GHA</span>
-                <span class="team-flag">🇬🇭</span><span class="team-name">Ghana</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
+                <span class="team-name">Ghana</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Colombia</span>
-                <span class="team-flag">🇨🇴</span><span class="team-badge">COL</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:30</div>
             <div class="team team-away">
-                <span class="team-badge">POR</span>
-                <span class="team-flag">🇵🇹</span><span class="team-name">Portugal</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
+                <span class="team-name">Portugal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">RD Congo</span>
-                <span class="team-flag">🇨🇩</span><span class="team-badge">RDC</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
             </div>
             <div class="match-time">19:30</div>
             <div class="team team-away">
-                <span class="team-badge">UZB</span>
-                <span class="team-flag">🇺🇿</span><span class="team-name">Uzbekistán</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
+                <span class="team-name">Uzbekistán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">JOR</span>
-                <span class="team-flag">🇯🇴</span><span class="team-name">Jordania</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
+                <span class="team-name">Jordania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argelia</span>
-                <span class="team-flag">🇩🇿</span><span class="team-badge">ALG</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
-                <span class="team-badge">AUT</span>
-                <span class="team-flag">🇦🇹</span><span class="team-name">Austria</span>
+                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
+                <span class="team-name">Austria</span>
             </div>
         </div>
     </section>
