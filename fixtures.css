@@ -1,0 +1,208 @@
+
+* { box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #e8edf2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#worldcup-fixture-widget {
+    width: 550px;
+    height: 1030px;
+    border-radius: 0;
+    background: #f4f7fa;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fixture-topbar {
+    height: 92px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex: 0 0 auto;
+}
+
+.fixture-title {
+    font-size: 25px;
+    line-height: 28px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.fixture-subtitle {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #c9d1d8;
+    font-weight: 700;
+}
+
+.fixture-counter {
+    flex: 0 0 auto;
+    padding: 9px 13px;
+    border-radius: 999px;
+    background: #03a9f4;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.fixture-tabs {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    background: #ffffff;
+    border-bottom: 1px solid #dce3e8;
+    flex: 0 0 auto;
+}
+
+.fixture-tab {
+    height: 34px;
+    min-width: 92px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #edf2f5;
+    color: #5f6a72;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.fixture-tab.active {
+    background: #03a9f4;
+    color: #ffffff;
+}
+
+#fixture-scroll {
+    flex: 1 1 auto;
+    padding: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: #f3f6f8;
+}
+
+#fixture-scroll::-webkit-scrollbar { width: 8px; }
+#fixture-scroll::-webkit-scrollbar-track { background: #edf1f4; }
+#fixture-scroll::-webkit-scrollbar-thumb { background: #b5c0c8; border-radius: 999px; }
+
+.fixture-group {
+    margin-bottom: 14px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d9e1e7;
+    box-shadow: 0 5px 14px rgba(20,31,43,0.08);
+}
+
+.fixture-group-header {
+    min-height: 43px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: linear-gradient(180deg, #edf3f7 0%, #e3ebf1 100%);
+    color: #20282e;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.fixture-group-header strong {
+    flex: 0 0 auto;
+    color: #69747c;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.game-card {
+    min-height: 74px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr);
+    align-items: center;
+    padding: 0 12px;
+    background: #ffffff;
+    border-top: 1px solid #edf1f4;
+}
+
+.game-card:nth-child(odd) {
+    background: #fbfcfd;
+}
+
+.team {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #1f252b;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 900;
+}
+
+.team-home {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.team-away {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.team-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.team-badge {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 25%, #ffffff 0%, #d9e8f1 45%, #9fb6c5 100%);
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(20,31,43,0.22);
+    color: #25313b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
+
+.match-time {
+    height: 40px;
+    min-width: 66px;
+    margin: 0 auto;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: #1f252b;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
