@@ -7,7 +7,7 @@
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=550, initial-scale=1.0">
     <title>Calendario Mundial 2026</title>
-    <link rel="stylesheet" href="fixtures.css?v=20260608-01">
+    <link rel="stylesheet" href="fixtures.css?v=20260608-flags-01">
     <style>
 * { box-sizing: border-box; }
 
@@ -216,6 +216,42 @@ html, body {
     font-weight: 900;
     letter-spacing: 0.2px;
 }
+
+/* Banderas livianas con emojis: no carga imágenes externas */
+.team-badge {
+    width: auto;
+    height: 20px;
+    min-width: 30px;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f0f5;
+    border: 1px solid #d3dde5;
+    box-shadow: none;
+    color: #3a4650;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+    padding: 0 5px;
+}
+
+.team-flag {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(20,31,43,0.22);
+    font-size: 22px;
+    line-height: 1;
+}
+
 </style>
 </head>
 <body>
@@ -244,23 +280,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-badge">MÉX</span>
+                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUD</span>
-                <span class="team-name">Sudáfrica</span>
+                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Corea del Sur</span>
-                <span class="team-badge">CDS</span>
+                <span class="team-flag">🇰🇷</span><span class="team-badge">CDS</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">CHE</span>
-                <span class="team-name">República Checa</span>
+                <span class="team-flag">🇨🇿</span><span class="team-name">República Checa</span>
             </div>
         </div>
     </section>
@@ -274,12 +310,12 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Canadá</span>
-                <span class="team-badge">CAN</span>
+                <span class="team-flag">🇨🇦</span><span class="team-badge">CAN</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">BH</span>
-                <span class="team-name">Bosnia Herz.</span>
+                <span class="team-flag">🇧🇦</span><span class="team-name">Bosnia Herz.</span>
             </div>
         </div>
     </section>
@@ -293,12 +329,12 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-badge">USA</span>
+                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">PAR</span>
-                <span class="team-name">Paraguay</span>
+                <span class="team-flag">🇵🇾</span><span class="team-name">Paraguay</span>
             </div>
         </div>
     </section>
@@ -312,12 +348,12 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Qatar</span>
-                <span class="team-badge">QAT</span>
+                <span class="team-flag">🇶🇦</span><span class="team-badge">QAT</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUI</span>
-                <span class="team-name">Suiza</span>
+                <span class="team-flag">🇨🇭</span><span class="team-name">Suiza</span>
             </div>
         </div>
     </section>
@@ -331,23 +367,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-badge">BRA</span>
+                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">MAR</span>
-                <span class="team-name">Marruecos</span>
+                <span class="team-flag">🇲🇦</span><span class="team-name">Marruecos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Haití</span>
-                <span class="team-badge">HAI</span>
+                <span class="team-flag">🇭🇹</span><span class="team-badge">HAI</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">ESC</span>
-                <span class="team-name">Escocia</span>
+                <span class="team-flag">🏴</span><span class="team-name">Escocia</span>
             </div>
         </div>
     </section>
@@ -361,12 +397,12 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Australia</span>
-                <span class="team-badge">AUS</span>
+                <span class="team-flag">🇦🇺</span><span class="team-badge">AUS</span>
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
                 <span class="team-badge">TUR</span>
-                <span class="team-name">Turquía</span>
+                <span class="team-flag">🇹🇷</span><span class="team-name">Turquía</span>
             </div>
         </div>
     </section>
@@ -380,23 +416,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Alemania</span>
-                <span class="team-badge">ALE</span>
+                <span class="team-flag">🇩🇪</span><span class="team-badge">ALE</span>
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
                 <span class="team-badge">CUR</span>
-                <span class="team-name">Curazao</span>
+                <span class="team-flag">🇨🇼</span><span class="team-name">Curazao</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Costa de Marfil</span>
-                <span class="team-badge">CM</span>
+                <span class="team-flag">🇨🇮</span><span class="team-badge">CM</span>
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
                 <span class="team-badge">ECU</span>
-                <span class="team-name">Ecuador</span>
+                <span class="team-flag">🇪🇨</span><span class="team-name">Ecuador</span>
             </div>
         </div>
     </section>
@@ -410,23 +446,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Países Bajos</span>
-                <span class="team-badge">PB</span>
+                <span class="team-flag">🇳🇱</span><span class="team-badge">PB</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">JAP</span>
-                <span class="team-name">Japón</span>
+                <span class="team-flag">🇯🇵</span><span class="team-name">Japón</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-badge">TUN</span>
+                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUE</span>
-                <span class="team-name">Suecia</span>
+                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
             </div>
         </div>
     </section>
@@ -440,23 +476,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">España</span>
-                <span class="team-badge">ESP</span>
+                <span class="team-flag">🇪🇸</span><span class="team-badge">ESP</span>
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
                 <span class="team-badge">CV</span>
-                <span class="team-name">Cabo Verde</span>
+                <span class="team-flag">🇨🇻</span><span class="team-name">Cabo Verde</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Arabia Saudita</span>
-                <span class="team-badge">AS</span>
+                <span class="team-flag">🇸🇦</span><span class="team-badge">AS</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">URU</span>
-                <span class="team-name">Uruguay</span>
+                <span class="team-flag">🇺🇾</span><span class="team-name">Uruguay</span>
             </div>
         </div>
     </section>
@@ -470,23 +506,23 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bélgica</span>
-                <span class="team-badge">BEL</span>
+                <span class="team-flag">🇧🇪</span><span class="team-badge">BEL</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">EGI</span>
-                <span class="team-name">Egipto</span>
+                <span class="team-flag">🇪🇬</span><span class="team-name">Egipto</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Irán</span>
-                <span class="team-badge">IRN</span>
+                <span class="team-flag">🇮🇷</span><span class="team-badge">IRN</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">NZ</span>
-                <span class="team-name">Nueva Zelanda</span>
+                <span class="team-flag">🇳🇿</span><span class="team-name">Nueva Zelanda</span>
             </div>
         </div>
     </section>
@@ -500,34 +536,34 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Francia</span>
-                <span class="team-badge">FRA</span>
+                <span class="team-flag">🇫🇷</span><span class="team-badge">FRA</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">SEN</span>
-                <span class="team-name">Senegal</span>
+                <span class="team-flag">🇸🇳</span><span class="team-name">Senegal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Irak</span>
-                <span class="team-badge">IRK</span>
+                <span class="team-flag">🇮🇶</span><span class="team-badge">IRK</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">NOR</span>
-                <span class="team-name">Noruega</span>
+                <span class="team-flag">🇳🇴</span><span class="team-name">Noruega</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-badge">ARG</span>
+                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">ALG</span>
-                <span class="team-name">Argelia</span>
+                <span class="team-flag">🇩🇿</span><span class="team-name">Argelia</span>
             </div>
         </div>
     </section>
@@ -541,56 +577,56 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Austria</span>
-                <span class="team-badge">AUT</span>
+                <span class="team-flag">🇦🇹</span><span class="team-badge">AUT</span>
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
                 <span class="team-badge">JOR</span>
-                <span class="team-name">Jordania</span>
+                <span class="team-flag">🇯🇴</span><span class="team-name">Jordania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Portugal</span>
-                <span class="team-badge">POR</span>
+                <span class="team-flag">🇵🇹</span><span class="team-badge">POR</span>
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
                 <span class="team-badge">RDC</span>
-                <span class="team-name">RD Congo</span>
+                <span class="team-flag">🇨🇩</span><span class="team-name">RD Congo</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Inglaterra</span>
-                <span class="team-badge">ING</span>
+                <span class="team-flag">🏴</span><span class="team-badge">ING</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">CRO</span>
-                <span class="team-name">Croacia</span>
+                <span class="team-flag">🇭🇷</span><span class="team-name">Croacia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ghana</span>
-                <span class="team-badge">GHA</span>
+                <span class="team-flag">🇬🇭</span><span class="team-badge">GHA</span>
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
                 <span class="team-badge">PAN</span>
-                <span class="team-name">Panamá</span>
+                <span class="team-flag">🇵🇦</span><span class="team-name">Panamá</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uzbekistán</span>
-                <span class="team-badge">UZB</span>
+                <span class="team-flag">🇺🇿</span><span class="team-badge">UZB</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">COL</span>
-                <span class="team-name">Colombia</span>
+                <span class="team-flag">🇨🇴</span><span class="team-name">Colombia</span>
             </div>
         </div>
     </section>
@@ -604,45 +640,45 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">República Checa</span>
-                <span class="team-badge">CHE</span>
+                <span class="team-flag">🇨🇿</span><span class="team-badge">CHE</span>
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUD</span>
-                <span class="team-name">Sudáfrica</span>
+                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Suiza</span>
-                <span class="team-badge">SUI</span>
+                <span class="team-flag">🇨🇭</span><span class="team-badge">SUI</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">BH</span>
-                <span class="team-name">Bosnia Herz.</span>
+                <span class="team-flag">🇧🇦</span><span class="team-name">Bosnia Herz.</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Canadá</span>
-                <span class="team-badge">CAN</span>
+                <span class="team-flag">🇨🇦</span><span class="team-badge">CAN</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">QAT</span>
-                <span class="team-name">Qatar</span>
+                <span class="team-flag">🇶🇦</span><span class="team-name">Qatar</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-badge">MÉX</span>
+                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">CDS</span>
-                <span class="team-name">Corea del Sur</span>
+                <span class="team-flag">🇰🇷</span><span class="team-name">Corea del Sur</span>
             </div>
         </div>
     </section>
@@ -656,34 +692,34 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-badge">USA</span>
+                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">AUS</span>
-                <span class="team-name">Australia</span>
+                <span class="team-flag">🇦🇺</span><span class="team-name">Australia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Escocia</span>
-                <span class="team-badge">ESC</span>
+                <span class="team-flag">🏴</span><span class="team-badge">ESC</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">MAR</span>
-                <span class="team-name">Marruecos</span>
+                <span class="team-flag">🇲🇦</span><span class="team-name">Marruecos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-badge">BRA</span>
+                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">HAI</span>
-                <span class="team-name">Haití</span>
+                <span class="team-flag">🇭🇹</span><span class="team-name">Haití</span>
             </div>
         </div>
     </section>
@@ -697,45 +733,45 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Turquía</span>
-                <span class="team-badge">TUR</span>
+                <span class="team-flag">🇹🇷</span><span class="team-badge">TUR</span>
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
                 <span class="team-badge">PAR</span>
-                <span class="team-name">Paraguay</span>
+                <span class="team-flag">🇵🇾</span><span class="team-name">Paraguay</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Países Bajos</span>
-                <span class="team-badge">PB</span>
+                <span class="team-flag">🇳🇱</span><span class="team-badge">PB</span>
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUE</span>
-                <span class="team-name">Suecia</span>
+                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Alemania</span>
-                <span class="team-badge">ALE</span>
+                <span class="team-flag">🇩🇪</span><span class="team-badge">ALE</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">CM</span>
-                <span class="team-name">Costa de Marfil</span>
+                <span class="team-flag">🇨🇮</span><span class="team-name">Costa de Marfil</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ecuador</span>
-                <span class="team-badge">ECU</span>
+                <span class="team-flag">🇪🇨</span><span class="team-badge">ECU</span>
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
                 <span class="team-badge">CUR</span>
-                <span class="team-name">Curazao</span>
+                <span class="team-flag">🇨🇼</span><span class="team-name">Curazao</span>
             </div>
         </div>
     </section>
@@ -749,56 +785,56 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-badge">TUN</span>
+                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
             </div>
             <div class="match-time">00:00</div>
             <div class="team team-away">
                 <span class="team-badge">JAP</span>
-                <span class="team-name">Japón</span>
+                <span class="team-flag">🇯🇵</span><span class="team-name">Japón</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">España</span>
-                <span class="team-badge">ESP</span>
+                <span class="team-flag">🇪🇸</span><span class="team-badge">ESP</span>
             </div>
             <div class="match-time">12:00</div>
             <div class="team team-away">
                 <span class="team-badge">AS</span>
-                <span class="team-name">Arabia Saudita</span>
+                <span class="team-flag">🇸🇦</span><span class="team-name">Arabia Saudita</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bélgica</span>
-                <span class="team-badge">BEL</span>
+                <span class="team-flag">🇧🇪</span><span class="team-badge">BEL</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">IRN</span>
-                <span class="team-name">Irán</span>
+                <span class="team-flag">🇮🇷</span><span class="team-name">Irán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uruguay</span>
-                <span class="team-badge">URU</span>
+                <span class="team-flag">🇺🇾</span><span class="team-badge">URU</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">CV</span>
-                <span class="team-name">Cabo Verde</span>
+                <span class="team-flag">🇨🇻</span><span class="team-name">Cabo Verde</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Nueva Zelanda</span>
-                <span class="team-badge">NZ</span>
+                <span class="team-flag">🇳🇿</span><span class="team-badge">NZ</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">EGI</span>
-                <span class="team-name">Egipto</span>
+                <span class="team-flag">🇪🇬</span><span class="team-name">Egipto</span>
             </div>
         </div>
     </section>
@@ -812,45 +848,45 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-badge">ARG</span>
+                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
                 <span class="team-badge">AUT</span>
-                <span class="team-name">Austria</span>
+                <span class="team-flag">🇦🇹</span><span class="team-name">Austria</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Francia</span>
-                <span class="team-badge">FRA</span>
+                <span class="team-flag">🇫🇷</span><span class="team-badge">FRA</span>
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
                 <span class="team-badge">IRK</span>
-                <span class="team-name">Irak</span>
+                <span class="team-flag">🇮🇶</span><span class="team-name">Irak</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Noruega</span>
-                <span class="team-badge">NOR</span>
+                <span class="team-flag">🇳🇴</span><span class="team-badge">NOR</span>
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
                 <span class="team-badge">SEN</span>
-                <span class="team-name">Senegal</span>
+                <span class="team-flag">🇸🇳</span><span class="team-name">Senegal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Jordania</span>
-                <span class="team-badge">JOR</span>
+                <span class="team-flag">🇯🇴</span><span class="team-badge">JOR</span>
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
                 <span class="team-badge">ALG</span>
-                <span class="team-name">Argelia</span>
+                <span class="team-flag">🇩🇿</span><span class="team-name">Argelia</span>
             </div>
         </div>
     </section>
@@ -864,45 +900,45 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Portugal</span>
-                <span class="team-badge">POR</span>
+                <span class="team-flag">🇵🇹</span><span class="team-badge">POR</span>
             </div>
             <div class="match-time">13:00</div>
             <div class="team team-away">
                 <span class="team-badge">UZB</span>
-                <span class="team-name">Uzbekistán</span>
+                <span class="team-flag">🇺🇿</span><span class="team-name">Uzbekistán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Inglaterra</span>
-                <span class="team-badge">ING</span>
+                <span class="team-flag">🏴</span><span class="team-badge">ING</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">GHA</span>
-                <span class="team-name">Ghana</span>
+                <span class="team-flag">🇬🇭</span><span class="team-name">Ghana</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Panamá</span>
-                <span class="team-badge">PAN</span>
+                <span class="team-flag">🇵🇦</span><span class="team-badge">PAN</span>
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
                 <span class="team-badge">CRO</span>
-                <span class="team-name">Croacia</span>
+                <span class="team-flag">🇭🇷</span><span class="team-name">Croacia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Colombia</span>
-                <span class="team-badge">COL</span>
+                <span class="team-flag">🇨🇴</span><span class="team-badge">COL</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">RDC</span>
-                <span class="team-name">RD Congo</span>
+                <span class="team-flag">🇨🇩</span><span class="team-name">RD Congo</span>
             </div>
         </div>
     </section>
@@ -916,67 +952,67 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Suiza</span>
-                <span class="team-badge">SUI</span>
+                <span class="team-flag">🇨🇭</span><span class="team-badge">SUI</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">CAN</span>
-                <span class="team-name">Canadá</span>
+                <span class="team-flag">🇨🇦</span><span class="team-name">Canadá</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Bosnia Herz.</span>
-                <span class="team-badge">BH</span>
+                <span class="team-flag">🇧🇦</span><span class="team-badge">BH</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">QAT</span>
-                <span class="team-name">Qatar</span>
+                <span class="team-flag">🇶🇦</span><span class="team-name">Qatar</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Brasil</span>
-                <span class="team-badge">BRA</span>
+                <span class="team-flag">🇧🇷</span><span class="team-badge">BRA</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">ESC</span>
-                <span class="team-name">Escocia</span>
+                <span class="team-flag">🏴</span><span class="team-name">Escocia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Marruecos</span>
-                <span class="team-badge">MAR</span>
+                <span class="team-flag">🇲🇦</span><span class="team-badge">MAR</span>
             </div>
             <div class="match-time">18:00</div>
             <div class="team team-away">
                 <span class="team-badge">HAI</span>
-                <span class="team-name">Haití</span>
+                <span class="team-flag">🇭🇹</span><span class="team-name">Haití</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">México</span>
-                <span class="team-badge">MÉX</span>
+                <span class="team-flag">🇲🇽</span><span class="team-badge">MÉX</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">CHE</span>
-                <span class="team-name">República Checa</span>
+                <span class="team-flag">🇨🇿</span><span class="team-name">República Checa</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Corea del Sur</span>
-                <span class="team-badge">CDS</span>
+                <span class="team-flag">🇰🇷</span><span class="team-badge">CDS</span>
             </div>
             <div class="match-time">21:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUD</span>
-                <span class="team-name">Sudáfrica</span>
+                <span class="team-flag">🇿🇦</span><span class="team-name">Sudáfrica</span>
             </div>
         </div>
     </section>
@@ -990,67 +1026,67 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Ecuador</span>
-                <span class="team-badge">ECU</span>
+                <span class="team-flag">🇪🇨</span><span class="team-badge">ECU</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">ALE</span>
-                <span class="team-name">Alemania</span>
+                <span class="team-flag">🇩🇪</span><span class="team-name">Alemania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Curazao</span>
-                <span class="team-badge">CUR</span>
+                <span class="team-flag">🇨🇼</span><span class="team-badge">CUR</span>
             </div>
             <div class="match-time">16:00</div>
             <div class="team team-away">
                 <span class="team-badge">CM</span>
-                <span class="team-name">Costa de Marfil</span>
+                <span class="team-flag">🇨🇮</span><span class="team-name">Costa de Marfil</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Túnez</span>
-                <span class="team-badge">TUN</span>
+                <span class="team-flag">🇹🇳</span><span class="team-badge">TUN</span>
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
                 <span class="team-badge">PB</span>
-                <span class="team-name">Países Bajos</span>
+                <span class="team-flag">🇳🇱</span><span class="team-name">Países Bajos</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Japón</span>
-                <span class="team-badge">JAP</span>
+                <span class="team-flag">🇯🇵</span><span class="team-badge">JAP</span>
             </div>
             <div class="match-time">19:00</div>
             <div class="team team-away">
                 <span class="team-badge">SUE</span>
-                <span class="team-name">Suecia</span>
+                <span class="team-flag">🇸🇪</span><span class="team-name">Suecia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Estados Unidos</span>
-                <span class="team-badge">USA</span>
+                <span class="team-flag">🇺🇸</span><span class="team-badge">USA</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">TUR</span>
-                <span class="team-name">Turquía</span>
+                <span class="team-flag">🇹🇷</span><span class="team-name">Turquía</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Paraguay</span>
-                <span class="team-badge">PAR</span>
+                <span class="team-flag">🇵🇾</span><span class="team-badge">PAR</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">AUS</span>
-                <span class="team-name">Australia</span>
+                <span class="team-flag">🇦🇺</span><span class="team-name">Australia</span>
             </div>
         </div>
     </section>
@@ -1064,67 +1100,67 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Noruega</span>
-                <span class="team-badge">NOR</span>
+                <span class="team-flag">🇳🇴</span><span class="team-badge">NOR</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">FRA</span>
-                <span class="team-name">Francia</span>
+                <span class="team-flag">🇫🇷</span><span class="team-name">Francia</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Senegal</span>
-                <span class="team-badge">SEN</span>
+                <span class="team-flag">🇸🇳</span><span class="team-badge">SEN</span>
             </div>
             <div class="match-time">15:00</div>
             <div class="team team-away">
                 <span class="team-badge">IRK</span>
-                <span class="team-name">Irak</span>
+                <span class="team-flag">🇮🇶</span><span class="team-name">Irak</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Uruguay</span>
-                <span class="team-badge">URU</span>
+                <span class="team-flag">🇺🇾</span><span class="team-badge">URU</span>
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
                 <span class="team-badge">ESP</span>
-                <span class="team-name">España</span>
+                <span class="team-flag">🇪🇸</span><span class="team-name">España</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Cabo Verde</span>
-                <span class="team-badge">CV</span>
+                <span class="team-flag">🇨🇻</span><span class="team-badge">CV</span>
             </div>
             <div class="match-time">20:00</div>
             <div class="team team-away">
                 <span class="team-badge">AS</span>
-                <span class="team-name">Arabia Saudita</span>
+                <span class="team-flag">🇸🇦</span><span class="team-name">Arabia Saudita</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Nueva Zelanda</span>
-                <span class="team-badge">NZ</span>
+                <span class="team-flag">🇳🇿</span><span class="team-badge">NZ</span>
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
                 <span class="team-badge">BEL</span>
-                <span class="team-name">Bélgica</span>
+                <span class="team-flag">🇧🇪</span><span class="team-name">Bélgica</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Egipto</span>
-                <span class="team-badge">EGI</span>
+                <span class="team-flag">🇪🇬</span><span class="team-badge">EGI</span>
             </div>
             <div class="match-time">23:00</div>
             <div class="team team-away">
                 <span class="team-badge">IRN</span>
-                <span class="team-name">Irán</span>
+                <span class="team-flag">🇮🇷</span><span class="team-name">Irán</span>
             </div>
         </div>
     </section>
@@ -1138,67 +1174,67 @@ html, body {
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Panamá</span>
-                <span class="team-badge">PAN</span>
+                <span class="team-flag">🇵🇦</span><span class="team-badge">PAN</span>
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
                 <span class="team-badge">ING</span>
-                <span class="team-name">Inglaterra</span>
+                <span class="team-flag">🏴</span><span class="team-name">Inglaterra</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Croacia</span>
-                <span class="team-badge">CRO</span>
+                <span class="team-flag">🇭🇷</span><span class="team-badge">CRO</span>
             </div>
             <div class="match-time">17:00</div>
             <div class="team team-away">
                 <span class="team-badge">GHA</span>
-                <span class="team-name">Ghana</span>
+                <span class="team-flag">🇬🇭</span><span class="team-name">Ghana</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Colombia</span>
-                <span class="team-badge">COL</span>
+                <span class="team-flag">🇨🇴</span><span class="team-badge">COL</span>
             </div>
             <div class="match-time">19:30</div>
             <div class="team team-away">
                 <span class="team-badge">POR</span>
-                <span class="team-name">Portugal</span>
+                <span class="team-flag">🇵🇹</span><span class="team-name">Portugal</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">RD Congo</span>
-                <span class="team-badge">RDC</span>
+                <span class="team-flag">🇨🇩</span><span class="team-badge">RDC</span>
             </div>
             <div class="match-time">19:30</div>
             <div class="team team-away">
                 <span class="team-badge">UZB</span>
-                <span class="team-name">Uzbekistán</span>
+                <span class="team-flag">🇺🇿</span><span class="team-name">Uzbekistán</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argentina</span>
-                <span class="team-badge">ARG</span>
+                <span class="team-flag">🇦🇷</span><span class="team-badge">ARG</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">JOR</span>
-                <span class="team-name">Jordania</span>
+                <span class="team-flag">🇯🇴</span><span class="team-name">Jordania</span>
             </div>
         </div>
         <div class="game-card">
             <div class="team team-home">
                 <span class="team-name">Argelia</span>
-                <span class="team-badge">ALG</span>
+                <span class="team-flag">🇩🇿</span><span class="team-badge">ALG</span>
             </div>
             <div class="match-time">22:00</div>
             <div class="team team-away">
                 <span class="team-badge">AUT</span>
-                <span class="team-name">Austria</span>
+                <span class="team-flag">🇦🇹</span><span class="team-name">Austria</span>
             </div>
         </div>
     </section>
@@ -1220,7 +1256,7 @@ html, body {
             }
         }
 
-        setInterval(scrollWorldCupWidget, 20000);
+        setInterval(scrollWorldCupWidget, 60000);
     </script>
 </body>
 </html>
