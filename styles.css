@@ -23,7 +23,7 @@ body {
 }
 
 .panel-header {
-  height: 88px;
+  height: 86px;
   padding: 14px 16px;
   background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
   color: #ffffff;
@@ -71,25 +71,27 @@ body {
   font-weight: 900;
 }
 
-.panel-strip {
-  height: 46px;
-  padding: 8px 13px;
+.summary-tab {
+  height: 54px;
+  padding: 8px 12px;
   background: #ffffff;
   border-bottom: 1px solid #d9e1e7;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   flex: 0 0 auto;
 }
 
-.panel-strip strong {
+.summary-tab strong {
+  display: block;
   color: #111820;
-  font-size: 14px;
-  line-height: 15px;
+  font-size: 16px;
+  line-height: 17px;
   font-weight: 900;
 }
 
-.panel-strip span {
+.summary-tab span {
+  display: block;
   margin-top: 3px;
   color: #68747d;
   font-size: 11px;
@@ -97,9 +99,20 @@ body {
   font-weight: 800;
 }
 
+.live-pill {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #e7f5fe;
+  color: #0b79b7;
+  font-size: 11px;
+  line-height: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
 .widget-scroll {
   flex: 1 1 auto;
-  height: 896px;
+  height: 890px;
   overflow-y: auto;
   overflow-x: hidden;
   background: #f3f6f8;
@@ -120,7 +133,7 @@ body {
 }
 
 .widget-zone {
-  min-height: 896px;
+  min-height: 890px;
   padding: 8px 8px 18px 8px;
 }
 
@@ -135,14 +148,12 @@ body {
   text-align: center;
 }
 
-/* Ajustes para que el widget de 365Scores calce mejor en una columna de 550 px */
 .widget-zone > div[data-widget-type="entityScores"] {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
 }
 
-/* Mantener la atribución, pero reducida para TV */
 #powered-by {
   width: 100%;
   margin: 8px 0 0 0;
@@ -161,9 +172,21 @@ body {
   font-weight: 900;
 }
 
-/* El widget a veces inyecta anchos grandes. Esto evita cortes laterales excesivos. */
 .widget-zone iframe,
 .widget-zone div,
 .widget-zone section {
   max-width: 100%;
+}
+
+/*
+  Ajustes visuales sobre el widget inyectado.
+  Como 365Scores no publica parámetros para fusionar pestañas, se oculta la barra interna
+  cuando aparece "Partidos / Resultados" y se deja la vista limpia bajo nuestro encabezado Resumen.
+*/
+.widget-zone .hide-365-tabs {
+  display: none !important;
+}
+
+.widget-zone .hide-365-odds {
+  display: none !important;
 }
