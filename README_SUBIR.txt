@@ -1,24 +1,20 @@
-PANEL MUNDIAL 2026 - 365SCORES SIN RESULTADOS INVENTADOS
+PANEL MUNDIAL 2026 - 365SCORES SIN VISTA RÁPIDA
 
-Corrección aplicada:
-- Se eliminó la interpretación incorrecta de horas como resultados.
-- Ahora "15:00" y "0:00" se leen como horarios, nunca como marcador.
-- Solo se considera resultado real si 365Scores entrega el centro del partido con guion:
+Cambios de esta versión:
+- Se eliminó el bloque "Vista rápida" porque repetía la información del próximo partido.
+- Se mantiene:
+  - Próximo partido.
+  - Partido en vivo.
+  - Últimos resultados reales.
+  - Lista de partidos y resultados.
+  - Scroll automático cada 5 segundos.
+  - Recarga de la página cada 1 minuto.
+- No se inventan resultados.
+- "15:00" y "0:00" se leen como horarios.
+- Solo se considera resultado real si 365Scores entrega marcador con guion:
   2 - 0
   2-0
   2–0
-
-Fuentes:
-- Se usa el widget entityScores de 365Scores como fuente automática.
-- Se carga una segunda instancia oculta para intentar leer la pestaña Resultados.
-- No existe ningún resultado cargado manualmente en el código.
-- Si 365Scores no entrega un marcador real en el DOM, el panel NO inventa el resultado.
-
-Sobre el widget entityStandings:
-- Ese widget sirve para tabla de posiciones/grupos.
-- No se usa para marcador de partidos porque "standings" no equivale a resultados de partidos.
-- Si quieres agregar una sección visual de posiciones por grupo, se puede crear aparte usando:
-  data-widget-type="entityStandings"
 
 Archivos:
 - index.html
@@ -33,7 +29,7 @@ Iframe recomendado:
 <iframe
   id="fixtures-iframe"
   class="fixtures-frame"
-  src="https://meteorpa.github.io/fixtures/?v=365-auto-02"
+  src="https://meteorpa.github.io/fixtures/?v=365-auto-03"
   width="550"
   height="1030"
   frameborder="0"

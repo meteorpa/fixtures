@@ -342,7 +342,6 @@ function render(matches) {
     setImg("liveAwayLogo", "");
   }
 
-  document.getElementById("tickerText").textContent = matchLabel(live || next);
   document.getElementById("countPill").textContent = matches.filter(m => m.status !== "finished").length;
 
   renderPastResults(matches);
