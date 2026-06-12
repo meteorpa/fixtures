@@ -1,5 +1,5 @@
 const SCROLL_MS = 5000;
-const PAGE_RELOAD_MS = 60000;
+const PAGE_RELOAD_MS = 120000;
 const SCROLL_STEP = 105;
 
 let lastSignature = "";
