@@ -1,1199 +1,136 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=550, initial-scale=1.0">
-    <title>Calendario Mundial 2026</title>
-    <link rel="stylesheet" href="fixtures.css?v=20260608-flags-img-01">
-    <style>
-* { box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=550, initial-scale=1.0">
+  <title>Calendario Mundial 2026</title>
 
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #e8edf2;
-    font-family: Arial, Helvetica, sans-serif;
-}
+  <script type="module" crossorigin src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
 
-#worldcup-fixture-widget {
-    width: 550px;
-    height: 1030px;
-    border-radius: 0;
-    background: #f4f7fa;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.fixture-topbar {
-    height: 92px;
-    padding: 16px 18px;
-    background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    flex: 0 0 auto;
-}
+    html, body {
+      width: 550px;
+      height: 1030px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #e8edf2;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.fixture-title {
-    font-size: 25px;
-    line-height: 28px;
-    font-weight: 900;
-    letter-spacing: -0.3px;
-}
+    .worldcup-panel {
+      width: 550px;
+      height: 1030px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #f4f7fa;
+    }
 
-.fixture-subtitle {
-    margin-top: 4px;
-    font-size: 14px;
-    color: #c9d1d8;
-    font-weight: 700;
-}
+    .worldcup-header {
+      height: 86px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
+      color: #ffffff;
+      flex: 0 0 auto;
+    }
 
-.fixture-counter {
-    flex: 0 0 auto;
-    padding: 9px 13px;
-    border-radius: 999px;
-    background: #03a9f4;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
+    .worldcup-title {
+      font-size: 25px;
+      line-height: 28px;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+    }
 
-.fixture-tabs {
-    height: 52px;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    gap: 8px;
-    background: #ffffff;
-    border-bottom: 1px solid #dce3e8;
-    flex: 0 0 auto;
-}
+    .worldcup-subtitle {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #c9d1d8;
+      font-weight: 700;
+    }
 
-.fixture-tab {
-    height: 34px;
-    min-width: 92px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: #edf2f5;
-    color: #5f6a72;
-    font-size: 13px;
-    font-weight: 900;
-}
+    .section-title {
+      height: 34px;
+      padding: 8px 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #dce3e8;
+      color: #20282e;
+      font-size: 13px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
 
-.fixture-tab.active {
-    background: #03a9f4;
-    color: #ffffff;
-}
+    .league-section {
+      height: 640px;
+      overflow: hidden;
+      background: #ffffff;
+      flex: 0 0 auto;
+    }
 
-#fixture-scroll {
-    flex: 1 1 auto;
-    padding: 12px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    background: #f3f6f8;
-}
+    .standings-section {
+      height: 270px;
+      overflow: hidden;
+      background: #ffffff;
+      border-top: 1px solid #dce3e8;
+      flex: 0 0 auto;
+    }
 
-#fixture-scroll::-webkit-scrollbar { width: 8px; }
-#fixture-scroll::-webkit-scrollbar-track { background: #edf1f4; }
-#fixture-scroll::-webkit-scrollbar-thumb { background: #b5c0c8; border-radius: 999px; }
+    api-sports-widget {
+      display: block;
+      width: 100%;
+      height: 100%;
 
-.fixture-group {
-    margin-bottom: 14px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #ffffff;
-    border: 1px solid #d9e1e7;
-    box-shadow: 0 5px 14px rgba(20,31,43,0.08);
-}
-
-.fixture-group-header {
-    min-height: 43px;
-    padding: 0 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    background: linear-gradient(180deg, #edf3f7 0%, #e3ebf1 100%);
-    color: #20282e;
-    font-size: 14px;
-    font-weight: 900;
-}
-
-.fixture-group-header strong {
-    flex: 0 0 auto;
-    color: #69747c;
-    font-size: 13px;
-    font-weight: 900;
-}
-
-.game-card {
-    min-height: 74px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr);
-    align-items: center;
-    padding: 0 12px;
-    background: #ffffff;
-    border-top: 1px solid #edf1f4;
-}
-
-.game-card:nth-child(odd) {
-    background: #fbfcfd;
-}
-
-.team {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    color: #1f252b;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 900;
-}
-
-.team-home {
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.team-away {
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.team-name {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.team-flag-img {
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #ffffff;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 6px rgba(20,31,43,0.22);
-}
-
-.match-time {
-    height: 40px;
-    min-width: 66px;
-    margin: 0 auto;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 13px;
-    background: #1f252b;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.2px;
-}
-</style>
+      --primary-font-size: 0.78rem;
+      --secondary-font-size: 0.72rem;
+      --button-font-size: 0.74rem;
+      --title-font-size: 0.84rem;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="worldcup-fixture-widget">
-        <div class="fixture-topbar">
-            <div>
-                <div class="fixture-title">Mundial 2026</div>
-                <div class="fixture-subtitle">Fase de grupos · Calendario completo</div>
-            </div>
-            <div class="fixture-counter">72 partidos</div>
-        </div>
-        <div class="fixture-tabs">
-            <span class="fixture-tab active">Todos</span>
-            <span class="fixture-tab">Fecha 1</span>
-            <span class="fixture-tab">Fecha 2</span>
-            <span class="fixture-tab">Fecha 3</span>
-        </div>
-        <div id="fixture-scroll">
-            
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo A · Fecha 1</span>
-            <strong>11/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">México</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
-                <span class="team-name">Sudáfrica</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Corea del Sur</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
-                <span class="team-name">República Checa</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo B · Fecha 1</span>
-            <strong>12/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Canadá</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
-                <span class="team-name">Bosnia Herz.</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo D · Fecha 1</span>
-            <strong>12/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Estados Unidos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
-                <span class="team-name">Paraguay</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo B · Fecha 1</span>
-            <strong>13/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Qatar</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
-                <span class="team-name">Suiza</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo C · Fecha 1</span>
-            <strong>13/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Brasil</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
-                <span class="team-name">Marruecos</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Haití</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
-                <span class="team-name">Escocia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo D · Fecha 1</span>
-            <strong>14/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Australia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">00:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
-                <span class="team-name">Turquía</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo E · Fecha 1</span>
-            <strong>14/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Alemania</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">13:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
-                <span class="team-name">Curazao</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Costa de Marfil</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
-                <span class="team-name">Ecuador</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo F · Fecha 1</span>
-            <strong>14/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Países Bajos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
-                <span class="team-name">Japón</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Túnez</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
-                <span class="team-name">Suecia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo H · Fecha 1</span>
-            <strong>15/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">España</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">12:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
-                <span class="team-name">Cabo Verde</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Arabia Saudita</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
-                <span class="team-name">Uruguay</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo G · Fecha 1</span>
-            <strong>15/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Bélgica</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
-                <span class="team-name">Egipto</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Irán</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
-                <span class="team-name">Nueva Zelanda</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo I · Fecha 1</span>
-            <strong>16/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Francia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
-                <span class="team-name">Senegal</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Irak</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
-                <span class="team-name">Noruega</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Argentina</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
-                <span class="team-name">Argelia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo J/K/L · Fecha 1</span>
-            <strong>17/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Austria</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">00:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
-                <span class="team-name">Jordania</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Portugal</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">13:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
-                <span class="team-name">RD Congo</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Inglaterra</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
-                <span class="team-name">Croacia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Ghana</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
-                <span class="team-name">Panamá</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Uzbekistán</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
-                <span class="team-name">Colombia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo A/B · Fecha 2</span>
-            <strong>18/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">República Checa</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">12:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
-                <span class="team-name">Sudáfrica</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Suiza</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
-                <span class="team-name">Bosnia Herz.</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Canadá</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
-                <span class="team-name">Qatar</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">México</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
-                <span class="team-name">Corea del Sur</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo C/D · Fecha 2</span>
-            <strong>19/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Estados Unidos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
-                <span class="team-name">Australia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Escocia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
-                <span class="team-name">Marruecos</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Brasil</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
-                <span class="team-name">Haití</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo D/E/F · Fecha 2</span>
-            <strong>20/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Turquía</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">00:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
-                <span class="team-name">Paraguay</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Países Bajos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">13:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
-                <span class="team-name">Suecia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Alemania</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
-                <span class="team-name">Costa de Marfil</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Ecuador</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">20:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
-                <span class="team-name">Curazao</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo F/G/H · Fecha 2</span>
-            <strong>21/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Túnez</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">00:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
-                <span class="team-name">Japón</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">España</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">12:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
-                <span class="team-name">Arabia Saudita</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Bélgica</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
-                <span class="team-name">Irán</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Uruguay</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
-                <span class="team-name">Cabo Verde</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Nueva Zelanda</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
-                <span class="team-name">Egipto</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo I/J · Fecha 2</span>
-            <strong>22/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Argentina</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">13:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
-                <span class="team-name">Austria</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Francia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">17:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
-                <span class="team-name">Irak</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Noruega</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">20:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
-                <span class="team-name">Senegal</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Jordania</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">23:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
-                <span class="team-name">Argelia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo K/L · Fecha 2</span>
-            <strong>23/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Portugal</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">13:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
-                <span class="team-name">Uzbekistán</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Inglaterra</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
-                <span class="team-name">Ghana</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Panamá</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
-                <span class="team-name">Croacia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Colombia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
-                <span class="team-name">RD Congo</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo A/B/C · Fecha 3</span>
-            <strong>24/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Suiza</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Suiza" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canadá" loading="lazy" decoding="async">
-                <span class="team-name">Canadá</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Bosnia Herz.</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ba.png" srcset="https://flagcdn.com/w80/ba.png 2x" alt="Bosnia Herz." loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/qa.png" srcset="https://flagcdn.com/w80/qa.png 2x" alt="Qatar" loading="lazy" decoding="async">
-                <span class="team-name">Qatar</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Brasil</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="Brasil" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-sct.png" srcset="https://flagcdn.com/w80/gb-sct.png 2x" alt="Escocia" loading="lazy" decoding="async">
-                <span class="team-name">Escocia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Marruecos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ma.png" srcset="https://flagcdn.com/w80/ma.png 2x" alt="Marruecos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">18:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ht.png" srcset="https://flagcdn.com/w80/ht.png 2x" alt="Haití" loading="lazy" decoding="async">
-                <span class="team-name">Haití</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">México</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/mx.png" srcset="https://flagcdn.com/w80/mx.png 2x" alt="México" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cz.png" srcset="https://flagcdn.com/w80/cz.png 2x" alt="República Checa" loading="lazy" decoding="async">
-                <span class="team-name">República Checa</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Corea del Sur</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="Corea del Sur" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">21:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/za.png" srcset="https://flagcdn.com/w80/za.png 2x" alt="Sudáfrica" loading="lazy" decoding="async">
-                <span class="team-name">Sudáfrica</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo D/E/F · Fecha 3</span>
-            <strong>25/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Ecuador</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ec.png" srcset="https://flagcdn.com/w80/ec.png 2x" alt="Ecuador" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" alt="Alemania" loading="lazy" decoding="async">
-                <span class="team-name">Alemania</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Curazao</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cw.png" srcset="https://flagcdn.com/w80/cw.png 2x" alt="Curazao" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">16:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ci.png" srcset="https://flagcdn.com/w80/ci.png 2x" alt="Costa de Marfil" loading="lazy" decoding="async">
-                <span class="team-name">Costa de Marfil</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Túnez</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tn.png" srcset="https://flagcdn.com/w80/tn.png 2x" alt="Túnez" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nl.png" srcset="https://flagcdn.com/w80/nl.png 2x" alt="Países Bajos" loading="lazy" decoding="async">
-                <span class="team-name">Países Bajos</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Japón</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japón" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/se.png" srcset="https://flagcdn.com/w80/se.png 2x" alt="Suecia" loading="lazy" decoding="async">
-                <span class="team-name">Suecia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Estados Unidos</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="Estados Unidos" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turquía" loading="lazy" decoding="async">
-                <span class="team-name">Turquía</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Paraguay</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/py.png" srcset="https://flagcdn.com/w80/py.png 2x" alt="Paraguay" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia" loading="lazy" decoding="async">
-                <span class="team-name">Australia</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo G/H/I · Fecha 3</span>
-            <strong>26/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Noruega</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/no.png" srcset="https://flagcdn.com/w80/no.png 2x" alt="Noruega" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" alt="Francia" loading="lazy" decoding="async">
-                <span class="team-name">Francia</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Senegal</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sn.png" srcset="https://flagcdn.com/w80/sn.png 2x" alt="Senegal" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">15:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/iq.png" srcset="https://flagcdn.com/w80/iq.png 2x" alt="Irak" loading="lazy" decoding="async">
-                <span class="team-name">Irak</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Uruguay</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uy.png" srcset="https://flagcdn.com/w80/uy.png 2x" alt="Uruguay" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">20:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="España" loading="lazy" decoding="async">
-                <span class="team-name">España</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Cabo Verde</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cv.png" srcset="https://flagcdn.com/w80/cv.png 2x" alt="Cabo Verde" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">20:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Arabia Saudita" loading="lazy" decoding="async">
-                <span class="team-name">Arabia Saudita</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Nueva Zelanda</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="Nueva Zelanda" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">23:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/be.png" srcset="https://flagcdn.com/w80/be.png 2x" alt="Bélgica" loading="lazy" decoding="async">
-                <span class="team-name">Bélgica</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Egipto</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/eg.png" srcset="https://flagcdn.com/w80/eg.png 2x" alt="Egipto" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">23:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ir.png" srcset="https://flagcdn.com/w80/ir.png 2x" alt="Irán" loading="lazy" decoding="async">
-                <span class="team-name">Irán</span>
-            </div>
-        </div>
-    </section>
-    <section class="fixture-group">
-        <div class="fixture-group-header">
-            <span>Grupo J/K/L · Fecha 3</span>
-            <strong>27/06/2026</strong>
-        </div>
-        
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Panamá</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pa.png" srcset="https://flagcdn.com/w80/pa.png 2x" alt="Panamá" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">17:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gb-eng.png" srcset="https://flagcdn.com/w80/gb-eng.png 2x" alt="Inglaterra" loading="lazy" decoding="async">
-                <span class="team-name">Inglaterra</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Croacia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/hr.png" srcset="https://flagcdn.com/w80/hr.png 2x" alt="Croacia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">17:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/gh.png" srcset="https://flagcdn.com/w80/gh.png 2x" alt="Ghana" loading="lazy" decoding="async">
-                <span class="team-name">Ghana</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Colombia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/co.png" srcset="https://flagcdn.com/w80/co.png 2x" alt="Colombia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:30</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="Portugal" loading="lazy" decoding="async">
-                <span class="team-name">Portugal</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">RD Congo</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/cd.png" srcset="https://flagcdn.com/w80/cd.png 2x" alt="RD Congo" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">19:30</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/uz.png" srcset="https://flagcdn.com/w80/uz.png 2x" alt="Uzbekistán" loading="lazy" decoding="async">
-                <span class="team-name">Uzbekistán</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Argentina</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/ar.png" srcset="https://flagcdn.com/w80/ar.png 2x" alt="Argentina" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/jo.png" srcset="https://flagcdn.com/w80/jo.png 2x" alt="Jordania" loading="lazy" decoding="async">
-                <span class="team-name">Jordania</span>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="team team-home">
-                <span class="team-name">Argelia</span>
-                <img class="team-flag-img" src="https://flagcdn.com/w40/dz.png" srcset="https://flagcdn.com/w80/dz.png 2x" alt="Argelia" loading="lazy" decoding="async">
-            </div>
-            <div class="match-time">22:00</div>
-            <div class="team team-away">
-                <img class="team-flag-img" src="https://flagcdn.com/w40/at.png" srcset="https://flagcdn.com/w80/at.png 2x" alt="Austria" loading="lazy" decoding="async">
-                <span class="team-name">Austria</span>
-            </div>
-        </div>
-    </section>
-        </div>
+  <div class="worldcup-panel">
+
+    <div class="worldcup-header">
+      <div class="worldcup-title">Mundial 2026</div>
+      <div class="worldcup-subtitle">Resultados, próximos partidos y avance de grupos</div>
     </div>
 
-    <script>
-        function scrollWorldCupWidget() {
-            const el = document.getElementById('fixture-scroll');
-            if (!el) return;
+    <div class="section-title">Partidos / resultados en vivo</div>
 
-            const maxScroll = el.scrollHeight - el.clientHeight;
-            if (maxScroll <= 0) return;
+    <div class="league-section">
+      <api-sports-widget data-type="league"></api-sports-widget>
+    </div>
 
-            if (el.scrollTop + 520 >= maxScroll) {
-                el.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                el.scrollBy({ top: 520, behavior: 'smooth' });
-            }
-        }
+    <div class="section-title">Estado de avance / grupos</div>
 
-        setInterval(scrollWorldCupWidget, 10000);
-    </script>
+    <div class="standings-section">
+      <api-sports-widget data-type="standings"></api-sports-widget>
+    </div>
+
+    <api-sports-widget
+      data-type="config"
+      data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
+      data-sport="football"
+      data-lang="es"
+      data-theme="white"
+      data-show-errors="true"
+      data-show-logos="true"
+      data-refresh="300"
+      data-league="1"
+      data-season="2026"
+      data-tab="fixtures"
+      data-standings="true"
+      data-target-standings="true"
+      data-target-game="modal"
+      data-target-player="modal"
+      data-target-team="modal">
+    </api-sports-widget>
+
+  </div>
 </body>
 </html>
