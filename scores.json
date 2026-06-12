@@ -1,0 +1,160 @@
+{
+  "updatedAt": "2026-06-12T19:45:00-04:00",
+  "nextMatch": {
+    "id": "4697699",
+    "status": "scheduled",
+    "group": "Grupo B - Fecha 1",
+    "date": "12/06/2026",
+    "time": "15:00",
+    "home": "Canadá",
+    "away": "Bosnia Herzegovina",
+    "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v12/Competitors/2388",
+    "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v4/Competitors/5048"
+  },
+  "liveMatch": null,
+  "matches": [
+    {
+      "id": "4697699",
+      "status": "scheduled",
+      "group": "Grupo B - Fecha 1",
+      "date": "12/06/2026",
+      "time": "15:00",
+      "home": "Canadá",
+      "away": "Bosnia Herzegovina",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v12/Competitors/2388",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v4/Competitors/5048"
+    },
+    {
+      "id": "4627869",
+      "status": "scheduled",
+      "group": "Grupo D - Fecha 1",
+      "date": "12/06/2026",
+      "time": "21:00",
+      "home": "Estados Unidos",
+      "away": "Paraguay",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v12/Competitors/2389",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v13/Competitors/5070"
+    },
+    {
+      "id": "4627868",
+      "status": "scheduled",
+      "group": "Grupo B - Fecha 1",
+      "date": "13/06/2026",
+      "time": "15:00",
+      "home": "Qatar",
+      "away": "Suiza",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5079",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/5032"
+    },
+    {
+      "id": "4627856",
+      "status": "scheduled",
+      "group": "Grupo C - Fecha 1",
+      "date": "13/06/2026",
+      "time": "18:00",
+      "home": "Brasil",
+      "away": "Marruecos",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v13/Competitors/2379",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5093"
+    },
+    {
+      "id": "4627891",
+      "status": "scheduled",
+      "group": "Grupo C - Fecha 1",
+      "date": "13/06/2026",
+      "time": "21:00",
+      "home": "Haití",
+      "away": "Escocia",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/5422",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5069"
+    },
+    {
+      "id": "4697702",
+      "status": "scheduled",
+      "group": "Grupo D - Fecha 1",
+      "date": "14/06/2026",
+      "time": "00:00",
+      "home": "Australia",
+      "away": "Turquía",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2380",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5047"
+    },
+    {
+      "id": "4627884",
+      "status": "scheduled",
+      "group": "Grupo E - Fecha 1",
+      "date": "14/06/2026",
+      "time": "13:00",
+      "home": "Alemania",
+      "away": "Curazao",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2372",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/24397"
+    },
+    {
+      "id": "4627859",
+      "status": "scheduled",
+      "group": "Grupo F - Fecha 1",
+      "date": "14/06/2026",
+      "time": "16:00",
+      "home": "Países Bajos",
+      "away": "Japón",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2377",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2382"
+    },
+    {
+      "id": "4627871",
+      "status": "scheduled",
+      "group": "Grupo E - Fecha 1",
+      "date": "14/06/2026",
+      "time": "19:00",
+      "home": "Costa de Marfil",
+      "away": "Ecuador",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2385",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v14/Competitors/5075"
+    },
+    {
+      "id": "4697705",
+      "status": "scheduled",
+      "group": "Grupo F - Fecha 1",
+      "date": "14/06/2026",
+      "time": "22:00",
+      "home": "Suecia",
+      "away": "Túnez",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2371",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/5104"
+    },
+    {
+      "id": "4627932",
+      "status": "scheduled",
+      "group": "Grupo G - Fecha 1",
+      "date": "15/06/2026",
+      "time": "15:00",
+      "home": "Bélgica",
+      "away": "Egipto",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/2373",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v4/Competitors/5100"
+    },
+    {
+      "id": "4627904",
+      "status": "scheduled",
+      "group": "Grupo H - Fecha 1",
+      "date": "15/06/2026",
+      "time": "12:00",
+      "home": "España",
+      "away": "Cabo Verde",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5050",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5411"
+    },
+    {
+      "id": "4627876",
+      "status": "scheduled",
+      "group": "Grupo H - Fecha 1",
+      "date": "15/06/2026",
+      "time": "18:00",
+      "home": "Arabia Saudita",
+      "away": "Uruguay",
+      "homeLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/5087",
+      "awayLogo": "https://imagecache.365scores.com/image/upload/f_png,w_34,h_34,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v17/Competitors/5073"
+    }
+  ]
+}

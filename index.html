@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=550, initial-scale=1.0">
-  <title>Mundial 2026 - 365Scores</title>
-  <link rel="stylesheet" href="styles.css?v=365-estable-scroll5-01">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=550, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Mundial 2026 - Panel liviano</title>
+  <link rel="stylesheet" href="styles.css?v=panel-liviano-365-01" />
 </head>
-
 <body>
-  <main class="panel">
-    <header class="panel-header">
-      <div>
+  <main class="app">
+    <header class="hero">
+      <div class="hero-left">
+        <div class="kicker">FIFA WORLD CUP</div>
         <h1>Mundial 2026</h1>
-        <p>Partidos, resultados y marcadores en vivo</p>
+        <p>Próximo partido · En vivo · Resultados</p>
       </div>
-      <div class="status-box">
-        <span>365Scores</span>
-        <small id="updated-at">Act. --:--</small>
+      <div class="hero-right">
+        <div class="live-dot"></div>
+        <span id="updateLabel">Act. --:--</span>
       </div>
     </header>
 
-    <section class="panel-strip">
-      <div>
-        <strong>Resumen de partidos</strong>
-        <span>Scroll automático cada 5 segundos · recarga cada 1 minuto</span>
-      </div>
+    <section class="featured-grid">
+      <article class="featured-card next">
+        <div class="card-topline">
+          <span>Próximo partido</span>
+          <strong id="nextGroup">--</strong>
+        </div>
+        <div class="match-main">
+          <div class="team">
+            <img id="nextHomeLogo" src="" alt="" />
+            <strong id="nextHome">--</strong>
+          </div>
+          <div class="center-time">
+            <span id="nextDate">--</span>
+            <strong id="nextTime">--:--</strong>
+          </div>
+          <div class="team away">
+            <img id="nextAwayLogo" src="" alt="" />
+            <strong id="nextAway">--</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="featured-card live" id="liveCard">
+        <div class="card-topline">
+          <span>En vivo</span>
+          <strong id="liveStatus">Sin partido en vivo</strong>
+        </div>
+        <div class="match-main">
+          <div class="team">
+            <img id="liveHomeLogo" src="" alt="" />
+            <strong id="liveHome">--</strong>
+          </div>
+          <div class="center-score">
+            <strong id="liveScore">--</strong>
+            <span id="liveMinute">--</span>
+          </div>
+          <div class="team away">
+            <img id="liveAwayLogo" src="" alt="" />
+            <strong id="liveAway">--</strong>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section id="widget-scroll" class="widget-scroll">
-      <div class="widget-zone">
-        <div
-          data-widget-type="entityScores"
-          data-entity-type="league"
-          data-entity-id="5930"
-          data-lang="es-es"
-          data-widget-id="a7755b1f-67df-4510-beea-cc2583660a40">
-        </div>
+    <section class="ticker">
+      <div class="ticker-title">Vista rápida</div>
+      <div class="ticker-text" id="tickerText">Cargando información...</div>
+    </section>
 
-        <div id="powered-by">
-          Provisto por
-          <a id="powered-by-link" href="https://www.365scores.com/es" target="_blank" rel="noopener">
-            365Scores.com
-          </a>
-        </div>
+    <section class="list-header">
+      <div>
+        <strong>Partidos y resultados</strong>
+        <span>Calendario compacto</span>
       </div>
+      <div class="count-pill" id="countPill">0</div>
+    </section>
+
+    <section class="scroll-area" id="scrollArea">
+      <div id="matchesList" class="matches-list"></div>
     </section>
   </main>
 
-  <script src="https://widgets.365scores.com/main.js"></script>
-  <script src="app.js?v=365-estable-scroll5-01"></script>
+  <script src="app.js?v=panel-liviano-365-01"></script>
 </body>
 </html>

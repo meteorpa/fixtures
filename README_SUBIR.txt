@@ -1,32 +1,31 @@
-INSTRUCCIONES
+PANEL MUNDIAL 2026 - LIVIANO CON ESTILO 365
 
-Sube estos archivos al repositorio:
-https://github.com/meteorpa/fixtures
-
+Archivos:
 - index.html
 - styles.css
 - app.js
+- scores.json
 
-Luego usa este iframe en el panel principal:
+Funcionamiento:
+- No usa iframe pesado ni widget completo.
+- La pantalla lee scores.json cada 1 minuto.
+- El scroll de la lista avanza cada 5 segundos.
+- El diseño mantiene el estilo de tarjetas trabajado: encabezado oscuro, cards, grupos, banderas y marcador central.
+
+Para GitHub Pages:
+1. Sube los cuatro archivos al repo meteorpa/fixtures.
+2. Usa en el panel principal:
 
 <iframe
   id="fixtures-iframe"
   class="fixtures-frame"
-  src="https://meteorpa.github.io/fixtures/?v=365-estable-scroll5-01"
+  src="https://meteorpa.github.io/fixtures/?v=panel-liviano-365-01"
   width="550"
   height="1030"
   frameborder="0"
   scrolling="no">
 </iframe>
 
-CAMBIOS
-
-- Versión estable: no manipula ni oculta elementos internos del widget.
-- Usa el widget oficial de 365Scores tal como se entrega.
-- Scroll automático cada 5 segundos.
-- Recarga completa del iframe cada 1 minuto para actualizar resultados.
-- Mantiene formato 550 x 1030.
-
-NOTA
-
-La versión anterior no mostraba nada porque el intento de ocultar la pestaña interna del widget podía terminar ocultando el contenedor que 365Scores usa para renderizar el contenido. Esta versión prioriza estabilidad.
+Importante:
+scores.json es el archivo que debe actualizar el agente cada minuto.
+Mientras no exista agente, queda con datos base del calendario.
