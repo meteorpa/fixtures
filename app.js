@@ -76,6 +76,51 @@ function renderMatchRow(m) {
   `;
 }
 
+function renderPastRow(m) {
+  return `
+    <div class="past-row">
+      <div class="past-team">
+        <img src="${m.homeLogo || ""}" alt="">
+        <strong>${m.home || "--"}</strong>
+      </div>
+      <div class="past-score">
+        <strong>${m.homeScore ?? 0} - ${m.awayScore ?? 0}</strong>
+        <span>${m.penaltyScore ? "PEN " + m.penaltyScore : (m.statusLabel || "FT")}</span>
+      </div>
+      <div class="past-team away">
+        <img src="${m.awayLogo || ""}" alt="">
+        <strong>${m.away || "--"}</strong>
+      </div>
+    </div>
+  `;
+}
+
+function renderPastResults(data) {
+  const container = document.getElementById("pastResultsList");
+  const count = document.getElementById("pastCount");
+  if (!container) return;
+
+  const fromPastResults = Array.isArray(data.pastResults) ? data.pastResults : [];
+  const fromFinishedMatches = Array.isArray(data.matches)
+    ? data.matches.filter(m => m.status === "finished")
+    : [];
+
+  const past = (fromPastResults.length ? fromPastResults : fromFinishedMatches).slice(0, 3);
+
+  if (count) count.textContent = past.length;
+
+  if (!past.length) {
+    container.innerHTML = `
+      <div class="past-empty">
+        Aún no hay resultados finalizados. Cuando termine un partido, aparecerá aquí.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = past.map(renderPastRow).join("");
+}
+
 function renderList(matches) {
   const list = document.getElementById("matchesList");
   if (!list) return;
@@ -138,6 +183,8 @@ function render(data) {
   const liveOrNext = live || next;
   document.getElementById("tickerText").textContent = liveOrNext ? matchLabel(liveOrNext) : "Sin información disponible.";
   document.getElementById("countPill").textContent = matches.length;
+
+  renderPastResults(data);
   renderList(matches);
 }
 

@@ -1,4 +1,4 @@
-PANEL MUNDIAL 2026 - LIVIANO CON ESTILO 365
+PANEL MUNDIAL 2026 - LIVIANO CON BLOQUE DE ULTIMOS RESULTADOS
 
 Archivos:
 - index.html
@@ -6,11 +6,30 @@ Archivos:
 - app.js
 - scores.json
 
-Funcionamiento:
-- No usa iframe pesado ni widget completo.
-- La pantalla lee scores.json cada 1 minuto.
-- El scroll de la lista avanza cada 5 segundos.
-- El diseño mantiene el estilo de tarjetas trabajado: encabezado oscuro, cards, grupos, banderas y marcador central.
+Cambios de esta versión:
+- Agrega un bloque fijo "Últimos resultados".
+- El bloque se llena con data.pastResults.
+- Si data.pastResults está vacío, usa automáticamente los partidos de matches con status="finished".
+- Si todavía no hay partidos terminados, muestra un mensaje limpio dentro del bloque.
+- Mantiene próximo partido, en vivo, vista rápida y calendario compacto.
+- Actualiza scores.json cada 1 minuto.
+- Scroll automático del calendario cada 5 segundos.
+
+Estructura para un resultado terminado dentro de scores.json:
+
+{
+  "id": "123",
+  "status": "finished",
+  "statusLabel": "FT",
+  "group": "Grupo A - Fecha 1",
+  "date": "12/06/2026",
+  "home": "Equipo A",
+  "away": "Equipo B",
+  "homeScore": 2,
+  "awayScore": 1,
+  "homeLogo": "URL_LOGO",
+  "awayLogo": "URL_LOGO"
+}
 
 Para GitHub Pages:
 1. Sube los cuatro archivos al repo meteorpa/fixtures.
@@ -19,13 +38,9 @@ Para GitHub Pages:
 <iframe
   id="fixtures-iframe"
   class="fixtures-frame"
-  src="https://meteorpa.github.io/fixtures/?v=panel-liviano-365-01"
+  src="https://meteorpa.github.io/fixtures/?v=panel-liviano-365-02"
   width="550"
   height="1030"
   frameborder="0"
   scrolling="no">
 </iframe>
-
-Importante:
-scores.json es el archivo que debe actualizar el agente cada minuto.
-Mientras no exista agente, queda con datos base del calendario.
