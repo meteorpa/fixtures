@@ -1,35 +1,39 @@
-PANEL MUNDIAL 2026 - AUTOMATICO DESDE WIDGET 365SCORES
+PANEL MUNDIAL 2026 - 365SCORES SIN RESULTADOS INVENTADOS
 
-Esta versión ya no usa scores.json manual.
+Corrección aplicada:
+- Se eliminó la interpretación incorrecta de horas como resultados.
+- Ahora "15:00" y "0:00" se leen como horarios, nunca como marcador.
+- Solo se considera resultado real si 365Scores entrega el centro del partido con guion:
+  2 - 0
+  2-0
+  2–0
 
-Cómo funciona:
-1. index.html carga el widget oficial de 365Scores fuera de la pantalla.
-2. app.js observa el DOM renderizado por el widget.
-3. Extrae grupos, fechas, equipos, logos, horarios y marcadores.
-4. Renderiza todo con el diseño liviano estilo 365 que trabajamos.
-5. Revisa cambios del widget cada 10 segundos.
-6. Hace scroll automático cada 5 segundos.
-7. Recarga la página completa cada 1 minuto para forzar actualización del widget.
+Fuentes:
+- Se usa el widget entityScores de 365Scores como fuente automática.
+- Se carga una segunda instancia oculta para intentar leer la pestaña Resultados.
+- No existe ningún resultado cargado manualmente en el código.
+- Si 365Scores no entrega un marcador real en el DOM, el panel NO inventa el resultado.
+
+Sobre el widget entityStandings:
+- Ese widget sirve para tabla de posiciones/grupos.
+- No se usa para marcador de partidos porque "standings" no equivale a resultados de partidos.
+- Si quieres agregar una sección visual de posiciones por grupo, se puede crear aparte usando:
+  data-widget-type="entityStandings"
 
 Archivos:
 - index.html
 - styles.css
 - app.js
 
-Importante:
-- Esta solución depende de que el widget de 365Scores renderice contenido accesible dentro del DOM de la página.
-- Si 365Scores cambia las clases internas del widget, puede ser necesario ajustar los selectores en app.js.
-- Si el widget pasa a renderizarse dentro de un iframe cross-origin cerrado, el navegador no permitirá leer su contenido y habrá que usar un agente externo con Playwright/Node o una API.
-
 Subir a GitHub Pages:
 Sube estos 3 archivos al repo meteorpa/fixtures.
 
-Iframe recomendado en el panel principal:
+Iframe recomendado:
 
 <iframe
   id="fixtures-iframe"
   class="fixtures-frame"
-  src="https://meteorpa.github.io/fixtures/?v=365-auto-01"
+  src="https://meteorpa.github.io/fixtures/?v=365-auto-02"
   width="550"
   height="1030"
   frameborder="0"

@@ -14,6 +14,8 @@ body {
 }
 
 .app {
+  position: relative;
+  z-index: 5;
   width: 550px;
   height: 1030px;
   overflow: hidden;
@@ -22,20 +24,28 @@ body {
   flex-direction: column;
 }
 
-/* Widget oficial usado solo como fuente de datos */
-#sourceWidget {
+/* Widgets oficiales usados solo como fuente de datos.
+   No usar display:none, porque el script puede dejar de renderizar. */
+.source-widget {
   position: fixed;
-  left: 620px;
+  left: 0;
   top: 0;
   width: 728px;
-  min-height: 1600px;
+  min-height: 1800px;
   opacity: 0.01;
   pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
+  overflow: visible;
+  transform: scale(0.01);
+  transform-origin: top left;
+  z-index: 1;
 }
 
-#powered-by {
+.source-widget-results {
+  left: 8px;
+  top: 8px;
+}
+
+.powered-by {
   font-size: 10px;
   color: transparent;
 }

@@ -3,6 +3,7 @@ const PAGE_RELOAD_MS = 60000;
 const SCROLL_STEP = 105;
 
 let lastSignature = "";
+let resultsTabAttempted = false;
 
 function qs(root, selector) {
   return root ? root.querySelector(selector) : null;
@@ -47,25 +48,30 @@ function parseDateFromText(value) {
   return match ? match[0] : "";
 }
 
-function parseScore(value) {
+/*
+  Punto crítico:
+  NO se interpreta "15:00" ni "0:00" como resultado.
+  Solo se considera marcador real si viene con guion: "2 - 0", "2-0" o "2–0".
+*/
+function parseCenterValue(value, fullText) {
   const clean = String(value || "").replace(/\s+/g, " ").trim();
-  const score = clean.match(/^(\d+)\s*[-–:]\s*(\d+)$/);
-  if (score) {
+
+  const scoreMatch = clean.match(/^(\d{1,2})\s*[-–]\s*(\d{1,2})$/);
+  if (scoreMatch) {
+    const liveText = /EN VIVO|LIVE|HT|ST|1T|2T|\d{1,3}'/i.test(fullText || "");
     return {
-      status: "finished",
-      homeScore: Number(score[1]),
-      awayScore: Number(score[2]),
-      display: `${score[1]} - ${score[2]}`
+      status: liveText ? "live" : "finished",
+      homeScore: Number(scoreMatch[1]),
+      awayScore: Number(scoreMatch[2]),
+      display: `${scoreMatch[1]} - ${scoreMatch[2]}`
     };
   }
 
-  const liveScore = clean.match(/(\d+)\s*[-–:]\s*(\d+)/);
-  if (liveScore && /EN VIVO|LIVE|\d{1,3}'|HT|ST|1T|2T/i.test(clean)) {
+  const timeMatch = clean.match(/^([01]?\d|2[0-3]):[0-5]\d$/);
+  if (timeMatch) {
     return {
-      status: "live",
-      homeScore: Number(liveScore[1]),
-      awayScore: Number(liveScore[2]),
-      display: `${liveScore[1]} - ${liveScore[2]}`
+      status: "scheduled",
+      display: clean
     };
   }
 
@@ -73,6 +79,28 @@ function parseScore(value) {
     status: "scheduled",
     display: clean || "--"
   };
+}
+
+function clickResultsTabIfAvailable() {
+  if (resultsTabAttempted) return;
+  const source = document.getElementById("sourceResults");
+  if (!source) return;
+
+  const candidates = qsa(source, "button, a, div, span").filter(el => {
+    const label = txt(el).toLowerCase();
+    return label === "resultados" || label.includes("resultados");
+  });
+
+  const tab = candidates[0];
+  if (!tab) return;
+
+  resultsTabAttempted = true;
+
+  try {
+    tab.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+  } catch (e) {
+    console.warn("No se pudo activar pestaña Resultados:", e);
+  }
 }
 
 function matchLabel(m) {
@@ -93,8 +121,8 @@ function stateText(m) {
   return m.date || "Programado";
 }
 
-function extractFrom365Widget() {
-  const source = document.getElementById("sourceWidget");
+function extractMatchesFromSource(sourceId) {
+  const source = document.getElementById(sourceId);
   if (!source) return [];
 
   const groupNodes = qsa(source, '[class*="entity-scores-widget-group_container"]')
@@ -122,28 +150,28 @@ function extractFrom365Widget() {
 
       const scoreNode = qs(card, '[class*="game-card-center_center_score"]');
       const rawCenter = txt(scoreNode);
-      const score = parseScore(rawCenter);
+      const fullText = txt(card);
+      const parsed = parseCenterValue(rawCenter, fullText);
 
       const href = qs(card, "a[href*='#id=']")?.getAttribute("href") || "";
-      const id = href.match(/#id=(\d+)/)?.[1] || `${home}-${away}-${groupDate}`;
+      const id = href.match(/#id=(\d+)/)?.[1] || `${home}-${away}-${groupDate}-${rawCenter}`;
 
       const bottom = txt(qs(card, '[class*="game-card_bottom_view"]'));
-      const fullText = txt(card);
-      const isLiveText = /EN VIVO|LIVE|\d{1,3}'/.test(fullText);
-      const status = score.status === "scheduled" && isLiveText ? "live" : score.status;
+      const minute = fullText.match(/\d{1,3}'|HT|ST|1T|2T|EN VIVO|LIVE/i)?.[0] || "";
 
       matches.push({
         id,
+        source: sourceId,
         group: groupTitle,
         date: groupDate,
-        time: score.status === "scheduled" ? score.display : "",
-        status,
-        statusLabel: status === "finished" ? "FT" : "",
-        minute: status === "live" ? (rawCenter.match(/\d{1,3}'|HT|ST|1T|2T|EN VIVO|LIVE/i)?.[0] || "EN VIVO") : "",
+        time: parsed.status === "scheduled" ? parsed.display : "",
+        status: parsed.status,
+        statusLabel: parsed.status === "finished" ? "FT" : "",
+        minute: parsed.status === "live" ? (minute || "EN VIVO") : "",
         home,
         away,
-        homeScore: score.homeScore,
-        awayScore: score.awayScore,
+        homeScore: parsed.homeScore,
+        awayScore: parsed.awayScore,
         homeLogo,
         awayLogo,
         note: bottom
@@ -151,28 +179,48 @@ function extractFrom365Widget() {
     });
   });
 
-  return dedupe(matches);
+  return matches;
+}
+
+function extractFrom365Widgets() {
+  clickResultsTabIfAvailable();
+
+  const fixtures = extractMatchesFromSource("sourceFixtures");
+  const results = extractMatchesFromSource("sourceResults");
+
+  return dedupe([...results, ...fixtures]);
 }
 
 function dedupe(matches) {
-  const seen = new Set();
-  const result = [];
+  const map = new Map();
+
   for (const m of matches) {
     const key = m.id || `${m.home}|${m.away}|${m.date}|${m.time}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    result.push(m);
+
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, m);
+      continue;
+    }
+
+    // Priorizar registros con marcador real por sobre registros programados.
+    if (existing.status === "scheduled" && (m.status === "finished" || m.status === "live")) {
+      map.set(key, m);
+    }
   }
-  return result;
+
+  return [...map.values()];
 }
 
 function groupMatches(matches) {
   const groups = new Map();
-  for (const m of matches) {
+
+  for (const m of matches.filter(m => m.status !== "finished")) {
     const key = `${m.group || "Mundial"}__${m.date || ""}`;
     if (!groups.has(key)) groups.set(key, { group: m.group || "Mundial", date: m.date || "", matches: [] });
     groups.get(key).matches.push(m);
   }
+
   return [...groups.values()];
 }
 
@@ -224,7 +272,7 @@ function renderPastResults(matches) {
   if (!past.length) {
     container.innerHTML = `
       <div class="past-empty">
-        Aún no hay resultados finalizados en el widget. Cuando 365Scores los cargue, aparecerán aquí.
+        Aún no hay resultados finalizados visibles en el widget. No se convertirán horarios en marcadores.
       </div>
     `;
     return;
@@ -235,12 +283,13 @@ function renderPastResults(matches) {
 
 function renderList(matches) {
   const list = document.getElementById("matchesList");
-  if (!matches.length) {
-    list.innerHTML = `<div class="empty">El widget todavía no entrega partidos legibles. Esperando carga de 365Scores...</div>`;
+  const groups = groupMatches(matches);
+
+  if (!groups.length) {
+    list.innerHTML = `<div class="empty">Esperando próximos partidos desde 365Scores...</div>`;
     return;
   }
 
-  const groups = groupMatches(matches);
   list.innerHTML = groups.map(g => `
     <section class="group-block">
       <div class="group-head">
@@ -260,7 +309,7 @@ function render(matches) {
   document.getElementById("updateLabel").textContent = "Act. " + fmtNow();
 
   const live = matches.find(m => m.status === "live");
-  const next = matches.find(m => m.status === "scheduled") || matches[0];
+  const next = matches.find(m => m.status === "scheduled") || matches.find(m => m.status !== "finished") || matches[0];
 
   if (next) {
     setText("nextGroup", next.group);
@@ -294,28 +343,30 @@ function render(matches) {
   }
 
   document.getElementById("tickerText").textContent = matchLabel(live || next);
-  document.getElementById("countPill").textContent = matches.length;
+  document.getElementById("countPill").textContent = matches.filter(m => m.status !== "finished").length;
 
   renderPastResults(matches);
   renderList(matches);
 }
 
 function tryExtractAndRender() {
-  const matches = extractFrom365Widget();
+  const matches = extractFrom365Widgets();
   if (matches.length) render(matches);
   else document.getElementById("updateLabel").textContent = "Act. " + fmtNow();
 }
 
-function observeWidget() {
-  const source = document.getElementById("sourceWidget");
-  if (!source) return;
+function observeWidgets() {
+  ["sourceFixtures", "sourceResults"].forEach(id => {
+    const source = document.getElementById(id);
+    if (!source) return;
 
-  const observer = new MutationObserver(() => {
-    window.clearTimeout(window.__parseTimer);
-    window.__parseTimer = window.setTimeout(tryExtractAndRender, 350);
+    const observer = new MutationObserver(() => {
+      window.clearTimeout(window.__parseTimer);
+      window.__parseTimer = window.setTimeout(tryExtractAndRender, 350);
+    });
+
+    observer.observe(source, { childList: true, subtree: true, characterData: true });
   });
-
-  observer.observe(source, { childList: true, subtree: true, characterData: true });
 }
 
 function autoScroll() {
@@ -332,7 +383,7 @@ function autoScroll() {
   }
 }
 
-observeWidget();
+observeWidgets();
 
 setTimeout(tryExtractAndRender, 1500);
 setTimeout(tryExtractAndRender, 3500);
@@ -340,7 +391,6 @@ setTimeout(tryExtractAndRender, 7000);
 setInterval(tryExtractAndRender, 10000);
 setInterval(autoScroll, SCROLL_MS);
 
-// Refresca toda la página para obligar al widget a consultar datos frescos.
 setTimeout(() => {
   window.location.reload();
 }, PAGE_RELOAD_MS);
