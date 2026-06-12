@@ -22,6 +22,24 @@ body {
   flex-direction: column;
 }
 
+/* Widget oficial usado solo como fuente de datos */
+#sourceWidget {
+  position: fixed;
+  left: 620px;
+  top: 0;
+  width: 728px;
+  min-height: 1600px;
+  opacity: 0.01;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#powered-by {
+  font-size: 10px;
+  color: transparent;
+}
+
 .hero {
   height: 112px;
   flex: 0 0 112px;

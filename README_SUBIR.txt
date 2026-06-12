@@ -1,44 +1,35 @@
-PANEL MUNDIAL 2026 - LIVIANO CON BLOQUE DE ULTIMOS RESULTADOS
+PANEL MUNDIAL 2026 - AUTOMATICO DESDE WIDGET 365SCORES
+
+Esta versión ya no usa scores.json manual.
+
+Cómo funciona:
+1. index.html carga el widget oficial de 365Scores fuera de la pantalla.
+2. app.js observa el DOM renderizado por el widget.
+3. Extrae grupos, fechas, equipos, logos, horarios y marcadores.
+4. Renderiza todo con el diseño liviano estilo 365 que trabajamos.
+5. Revisa cambios del widget cada 10 segundos.
+6. Hace scroll automático cada 5 segundos.
+7. Recarga la página completa cada 1 minuto para forzar actualización del widget.
 
 Archivos:
 - index.html
 - styles.css
 - app.js
-- scores.json
 
-Cambios de esta versión:
-- Agrega un bloque fijo "Últimos resultados".
-- El bloque se llena con data.pastResults.
-- Si data.pastResults está vacío, usa automáticamente los partidos de matches con status="finished".
-- Si todavía no hay partidos terminados, muestra un mensaje limpio dentro del bloque.
-- Mantiene próximo partido, en vivo, vista rápida y calendario compacto.
-- Actualiza scores.json cada 1 minuto.
-- Scroll automático del calendario cada 5 segundos.
+Importante:
+- Esta solución depende de que el widget de 365Scores renderice contenido accesible dentro del DOM de la página.
+- Si 365Scores cambia las clases internas del widget, puede ser necesario ajustar los selectores en app.js.
+- Si el widget pasa a renderizarse dentro de un iframe cross-origin cerrado, el navegador no permitirá leer su contenido y habrá que usar un agente externo con Playwright/Node o una API.
 
-Estructura para un resultado terminado dentro de scores.json:
+Subir a GitHub Pages:
+Sube estos 3 archivos al repo meteorpa/fixtures.
 
-{
-  "id": "123",
-  "status": "finished",
-  "statusLabel": "FT",
-  "group": "Grupo A - Fecha 1",
-  "date": "12/06/2026",
-  "home": "Equipo A",
-  "away": "Equipo B",
-  "homeScore": 2,
-  "awayScore": 1,
-  "homeLogo": "URL_LOGO",
-  "awayLogo": "URL_LOGO"
-}
-
-Para GitHub Pages:
-1. Sube los cuatro archivos al repo meteorpa/fixtures.
-2. Usa en el panel principal:
+Iframe recomendado en el panel principal:
 
 <iframe
   id="fixtures-iframe"
   class="fixtures-frame"
-  src="https://meteorpa.github.io/fixtures/?v=panel-liviano-365-02"
+  src="https://meteorpa.github.io/fixtures/?v=365-auto-01"
   width="550"
   height="1030"
   frameborder="0"

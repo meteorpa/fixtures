@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-es" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=550, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Mundial 2026 - Panel liviano</title>
-  <link rel="stylesheet" href="styles.css?v=panel-liviano-365-02" />
+  <title>Mundial 2026 - Panel automático 365Scores</title>
+  <link rel="stylesheet" href="styles.css?v=365-auto-01" />
 </head>
+
 <body>
   <main class="app">
     <header class="hero">
@@ -27,7 +28,7 @@
       <article class="featured-card next">
         <div class="card-topline">
           <span>Próximo partido</span>
-          <strong id="nextGroup">--</strong>
+          <strong id="nextGroup">Cargando...</strong>
         </div>
         <div class="match-main">
           <div class="team">
@@ -48,7 +49,7 @@
       <article class="featured-card live" id="liveCard">
         <div class="card-topline">
           <span>En vivo</span>
-          <strong id="liveStatus">Sin partido en vivo</strong>
+          <strong id="liveStatus">Buscando partido en vivo</strong>
         </div>
         <div class="match-main">
           <div class="team">
@@ -57,7 +58,7 @@
           </div>
           <div class="center-score">
             <strong id="liveScore">--</strong>
-            <span id="liveMinute">--</span>
+            <span id="liveMinute">SIN VIVO</span>
           </div>
           <div class="team away">
             <img id="liveAwayLogo" src="" alt="" />
@@ -69,7 +70,7 @@
 
     <section class="ticker">
       <div class="ticker-title">Vista rápida</div>
-      <div class="ticker-text" id="tickerText">Cargando información...</div>
+      <div class="ticker-text" id="tickerText">Cargando información desde 365Scores...</div>
     </section>
 
     <section class="past-results">
@@ -80,22 +81,47 @@
         </div>
         <div class="past-pill" id="pastCount">0</div>
       </div>
-      <div class="past-list" id="pastResultsList"></div>
+      <div class="past-list" id="pastResultsList">
+        <div class="past-empty">Leyendo resultados del widget 365Scores...</div>
+      </div>
     </section>
 
     <section class="list-header">
       <div>
         <strong>Partidos y resultados</strong>
-        <span>Calendario compacto</span>
+        <span>Calendario compacto desde 365Scores</span>
       </div>
       <div class="count-pill" id="countPill">0</div>
     </section>
 
     <section class="scroll-area" id="scrollArea">
-      <div id="matchesList" class="matches-list"></div>
+      <div id="matchesList" class="matches-list">
+        <div class="empty">Cargando widget 365Scores...</div>
+      </div>
     </section>
   </main>
 
-  <script src="app.js?v=panel-liviano-365-02"></script>
+  <!--
+    Fuente de datos:
+    Este bloque carga el widget oficial de 365Scores fuera de la pantalla.
+    app.js lee el DOM renderizado por el widget y lo transforma al diseño liviano.
+  -->
+  <aside id="sourceWidget" aria-hidden="true">
+    <div
+      id="scores365-source"
+      data-widget-type="entityScores"
+      data-entity-type="league"
+      data-entity-id="5930"
+      data-lang="es-es"
+      data-widget-id="a7755b1f-67df-4510-beea-cc2583660a40">
+    </div>
+    <div id="powered-by">
+      Provisto por
+      <a id="powered-by-link" href="https://www.365scores.com/es" target="_blank">365Scores.com</a>
+    </div>
+  </aside>
+
+  <script src="https://widgets.365scores.com/main.js"></script>
+  <script src="app.js?v=365-auto-01"></script>
 </body>
 </html>
