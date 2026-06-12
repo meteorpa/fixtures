@@ -1,131 +1,37 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=550, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=550, initial-scale=1.0">
   <title>Mundial 2026 - Resultados</title>
-
-  <script type="module" crossorigin src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 550px;
-      height: 1030px;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .worldcup-panel {
-      width: 550px;
-      height: 1030px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .worldcup-header {
-      height: 86px;
-      padding: 14px 18px;
-      background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
-      color: #ffffff;
-      flex: 0 0 auto;
-    }
-
-    .worldcup-title {
-      font-size: 25px;
-      line-height: 28px;
-      font-weight: 900;
-    }
-
-    .worldcup-subtitle {
-      margin-top: 4px;
-      font-size: 14px;
-      color: #c9d1d8;
-      font-weight: 700;
-    }
-
-    .widget-section {
-      width: 550px;
-      height: 944px;
-      overflow: hidden;
-      background: #ffffff;
-      flex: 0 0 auto;
-    }
-
-    api-sports-widget {
-      display: block;
-      width: 550px;
-      height: 944px;
-
-      --primary-font-size: 0.82rem;
-      --secondary-font-size: 0.74rem;
-      --button-font-size: 0.74rem;
-      --title-font-size: 0.86rem;
-    }
-
-    body .modal-widget {
-      width: 92%;
-      max-width: 520px;
-    }
-
-    body .modal-widget-content {
-      padding: 0;
-      height: 80vh;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=football-data-01">
 </head>
-
 <body>
-  <div class="worldcup-panel">
-
-    <div class="worldcup-header">
-      <div class="worldcup-title">Mundial 2026</div>
-      <div class="worldcup-subtitle">Resultados, próximos partidos y marcadores en vivo</div>
+  <div id="worldcup-fixture-widget">
+    <div class="fixture-topbar">
+      <div class="fixture-title-row">
+        <div>
+          <div class="fixture-title">Mundial 2026</div>
+          <div class="fixture-subtitle">Resultados, próximos partidos y marcadores en vivo</div>
+        </div>
+        <div class="fixture-source">
+          <span id="source-label">Cargando</span><br>
+          <span id="updated-label">Act. --:--</span>
+        </div>
+      </div>
+      <div class="fixture-summary">
+        <div class="summary-box"><div class="summary-value" id="summary-live">0</div><div class="summary-label">En vivo</div></div>
+        <div class="summary-box"><div class="summary-value" id="summary-upcoming">0</div><div class="summary-label">Próximos</div></div>
+        <div class="summary-box"><div class="summary-value" id="summary-finished">0</div><div class="summary-label">Finalizados</div></div>
+      </div>
     </div>
-
-    <div class="widget-section">
-      <api-sports-widget
-        data-type="league"
-        data-league="1"
-        data-season="2026"
-        data-tab="results"
-        data-refresh="300"
-        data-standings="false"
-        data-target-game="modal">
-      </api-sports-widget>
-    </div>
-
-    <api-sports-widget
-      data-type="config"
-      data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
-      data-sport="football"
-      data-lang="es"
-      data-theme="white"
-      data-show-errors="true"
-      data-show-logos="true"
-      data-refresh="300"
-      data-player-injuries="false"
-      data-team-squad="false"
-      data-team-statistics="false"
-      data-player-statistics="false"
-      data-game-tab="statistics"
-      data-standings="false"
-      data-target-game="modal"
-      data-target-player="modal"
-      data-target-team="modal"
-      data-tab="results"
-      data-league="1"
-      data-season="2026">
-    </api-sports-widget>
-
+    <div class="next-strip"><div class="next-label">Próximo</div><div class="next-text" id="next-text">Cargando próximos partidos...</div></div>
+    <div class="fixture-tabs"><button class="fixture-tab active" data-filter="all">Todos</button><button class="fixture-tab" data-filter="live">En vivo</button><button class="fixture-tab" data-filter="upcoming">Próximos</button><button class="fixture-tab" data-filter="finished">Finalizados</button></div>
+    <div id="fixture-scroll"><div class="empty-state">Cargando calendario del Mundial...</div></div>
   </div>
+  <script src="app.js?v=football-data-01"></script>
 </body>
 </html>
