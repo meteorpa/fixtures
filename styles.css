@@ -23,7 +23,7 @@ body {
 }
 
 .panel-header {
-  height: 86px;
+  height: 88px;
   padding: 14px 16px;
   background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
   color: #ffffff;
@@ -71,26 +71,25 @@ body {
   font-weight: 900;
 }
 
-.summary-tab {
-  height: 54px;
-  padding: 8px 12px;
+.panel-strip {
+  height: 48px;
+  padding: 8px 13px;
   background: #ffffff;
   border-bottom: 1px solid #d9e1e7;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex: 0 0 auto;
 }
 
-.summary-tab strong {
+.panel-strip strong {
   display: block;
   color: #111820;
-  font-size: 16px;
-  line-height: 17px;
+  font-size: 15px;
+  line-height: 16px;
   font-weight: 900;
 }
 
-.summary-tab span {
+.panel-strip span {
   display: block;
   margin-top: 3px;
   color: #68747d;
@@ -99,20 +98,9 @@ body {
   font-weight: 800;
 }
 
-.live-pill {
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: #e7f5fe;
-  color: #0b79b7;
-  font-size: 11px;
-  line-height: 12px;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
 .widget-scroll {
   flex: 1 1 auto;
-  height: 890px;
+  height: 894px;
   overflow-y: auto;
   overflow-x: hidden;
   background: #f3f6f8;
@@ -133,19 +121,8 @@ body {
 }
 
 .widget-zone {
-  min-height: 890px;
+  min-height: 894px;
   padding: 8px 8px 18px 8px;
-}
-
-.loading {
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #53606a;
-  font-size: 16px;
-  font-weight: 900;
-  text-align: center;
 }
 
 .widget-zone > div[data-widget-type="entityScores"] {
@@ -176,17 +153,4 @@ body {
 .widget-zone div,
 .widget-zone section {
   max-width: 100%;
-}
-
-/*
-  Ajustes visuales sobre el widget inyectado.
-  Como 365Scores no publica parámetros para fusionar pestañas, se oculta la barra interna
-  cuando aparece "Partidos / Resultados" y se deja la vista limpia bajo nuestro encabezado Resumen.
-*/
-.widget-zone .hide-365-tabs {
-  display: none !important;
-}
-
-.widget-zone .hide-365-odds {
-  display: none !important;
 }

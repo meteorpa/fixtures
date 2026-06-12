@@ -6,8 +6,8 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=550, initial-scale=1.0">
-  <title>Mundial 2026 - Resumen</title>
-  <link rel="stylesheet" href="styles.css?v=365-resumen-scroll5-01">
+  <title>Mundial 2026 - 365Scores</title>
+  <link rel="stylesheet" href="styles.css?v=365-estable-scroll5-01">
 </head>
 
 <body>
@@ -15,29 +15,42 @@
     <header class="panel-header">
       <div>
         <h1>Mundial 2026</h1>
-        <p>Resumen: próximos partidos y resultados</p>
+        <p>Partidos, resultados y marcadores en vivo</p>
       </div>
       <div class="status-box">
-        <span id="refresh-state">365Scores</span>
+        <span>365Scores</span>
         <small id="updated-at">Act. --:--</small>
       </div>
     </header>
 
-    <section class="summary-tab">
+    <section class="panel-strip">
       <div>
-        <strong>Resumen</strong>
-        <span>Partidos + resultados en una sola vista</span>
+        <strong>Resumen de partidos</strong>
+        <span>Scroll automático cada 5 segundos · recarga cada 1 minuto</span>
       </div>
-      <div class="live-pill">Scroll 5s</div>
     </section>
 
     <section id="widget-scroll" class="widget-scroll">
-      <div id="widget-zone" class="widget-zone">
-        <div class="loading">Cargando resultados del Mundial...</div>
+      <div class="widget-zone">
+        <div
+          data-widget-type="entityScores"
+          data-entity-type="league"
+          data-entity-id="5930"
+          data-lang="es-es"
+          data-widget-id="a7755b1f-67df-4510-beea-cc2583660a40">
+        </div>
+
+        <div id="powered-by">
+          Provisto por
+          <a id="powered-by-link" href="https://www.365scores.com/es" target="_blank" rel="noopener">
+            365Scores.com
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <script src="app.js?v=365-resumen-scroll5-01"></script>
+  <script src="https://widgets.365scores.com/main.js"></script>
+  <script src="app.js?v=365-estable-scroll5-01"></script>
 </body>
 </html>
