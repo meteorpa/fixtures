@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=550, initial-scale=1.0" />
-  <title>Mundial 2026</title>
+  <title>Mundial 2026 - Resultados</title>
 
   <script type="module" crossorigin src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
 
@@ -32,7 +32,7 @@
     }
 
     .worldcup-header {
-      height: 82px;
+      height: 86px;
       padding: 14px 18px;
       background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
       color: #ffffff;
@@ -52,27 +52,9 @@
       font-weight: 700;
     }
 
-    .section-title {
-      height: 34px;
-      padding: 8px 14px;
-      background: #ffffff;
-      border-bottom: 1px solid #dce3e8;
-      color: #20282e;
-      font-size: 13px;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .league-section {
-      height: 610px;
-      overflow: hidden;
-      background: #ffffff;
-      flex: 0 0 auto;
-      border-bottom: 1px solid #dce3e8;
-    }
-
-    .standings-section {
-      height: 304px;
+    .widget-section {
+      width: 550px;
+      height: 944px;
       overflow: hidden;
       background: #ffffff;
       flex: 0 0 auto;
@@ -80,20 +62,13 @@
 
     api-sports-widget {
       display: block;
-      width: 100%;
+      width: 550px;
+      height: 944px;
 
-      --primary-font-size: 0.78rem;
-      --secondary-font-size: 0.70rem;
-      --button-font-size: 0.70rem;
-      --title-font-size: 0.82rem;
-    }
-
-    .league-section api-sports-widget {
-      height: 610px;
-    }
-
-    .standings-section api-sports-widget {
-      height: 304px;
+      --primary-font-size: 0.82rem;
+      --secondary-font-size: 0.74rem;
+      --button-font-size: 0.74rem;
+      --title-font-size: 0.86rem;
     }
 
     body .modal-widget {
@@ -113,57 +88,43 @@
 
     <div class="worldcup-header">
       <div class="worldcup-title">Mundial 2026</div>
-      <div class="worldcup-subtitle">Resultados, próximos partidos y grupos</div>
+      <div class="worldcup-subtitle">Resultados, partidos y marcadores en vivo</div>
     </div>
 
-    <div class="section-title">Partidos / resultados / próximos</div>
-
-    <div class="league-section">
+    <div class="widget-section">
       <api-sports-widget
         data-type="league"
         data-league="1"
         data-season="2026"
         data-tab="results"
         data-refresh="300"
-        data-standings="true"
+        data-standings="false"
         data-target-game="modal">
       </api-sports-widget>
     </div>
 
-    <div class="section-title">Clasificación / grupos</div>
-
-    <div class="standings-section">
-      <api-sports-widget
-        data-type="standings"
-        data-league="1"
-        data-season="2026"
-        data-refresh="300">
-      </api-sports-widget>
-    </div>
-
-  <api-sports-widget
-    data-type="config"
-    data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
-    data-sport="football"
-    data-lang="en"
-    data-theme="white"
-    data-show-errors="true"
-    data-show-logos="true"
-    data-refresh="15"
-    data-player-injuries="true"
-    data-team-squad="true"
-    data-team-statistics="true"
-    data-player-statistics="true"
-    data-game-tab="statistics"
-    data-standings="true"
-    data-target-standings="true"
-    data-target-game="#game-content .card-body"
-    data-target-player="modal"
-    data-target-team="modal"
-    data-tab="results"
-    data-league="1"
-    data-season="2026"
-  ></api-sports-widget>
+    <api-sports-widget
+      data-type="config"
+      data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
+      data-sport="football"
+      data-lang="es"
+      data-theme="white"
+      data-show-errors="true"
+      data-show-logos="true"
+      data-refresh="300"
+      data-player-injuries="false"
+      data-team-squad="false"
+      data-team-statistics="false"
+      data-player-statistics="false"
+      data-game-tab="statistics"
+      data-standings="false"
+      data-target-game="modal"
+      data-target-player="modal"
+      data-target-team="modal"
+      data-tab="results"
+      data-league="1"
+      data-season="2026">
+    </api-sports-widget>
 
   </div>
 </body>
