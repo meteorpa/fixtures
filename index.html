@@ -32,8 +32,8 @@
     }
 
     .worldcup-header {
-      height: 88px;
-      padding: 15px 18px;
+      height: 82px;
+      padding: 14px 18px;
       background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
       color: #ffffff;
       flex: 0 0 auto;
@@ -52,66 +52,7 @@
       font-weight: 700;
     }
 
-    .tabs-status {
-      height: 42px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      background: #ffffff;
-      border-bottom: 1px solid #dce3e8;
-      flex: 0 0 auto;
-    }
-
-    .tab-pill {
-      flex: 1;
-      height: 28px;
-      border-radius: 999px;
-      background: #edf2f5;
-      color: #5f6a72;
-      font-size: 11px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: all 0.25s ease;
-    }
-
-    .tab-pill.active {
-      background: #03a9f4;
-      color: #ffffff;
-    }
-
-    .widget-stage {
-      width: 550px;
-      height: 900px;
-      position: relative;
-      overflow: hidden;
-      background: #ffffff;
-      flex: 0 0 auto;
-    }
-
-    .widget-pane {
-      position: absolute;
-      inset: 0;
-      width: 550px;
-      height: 900px;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      background: #ffffff;
-      overflow: hidden;
-    }
-
-    .widget-pane.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .pane-title {
+    .section-title {
       height: 34px;
       padding: 8px 14px;
       background: #ffffff;
@@ -119,24 +60,40 @@
       color: #20282e;
       font-size: 13px;
       font-weight: 900;
+      flex: 0 0 auto;
     }
 
-    .pane-content {
-      width: 550px;
-      height: 866px;
+    .league-section {
+      height: 610px;
       overflow: hidden;
       background: #ffffff;
+      flex: 0 0 auto;
+      border-bottom: 1px solid #dce3e8;
+    }
+
+    .standings-section {
+      height: 304px;
+      overflow: hidden;
+      background: #ffffff;
+      flex: 0 0 auto;
     }
 
     api-sports-widget {
       display: block;
-      width: 550px;
-      height: 866px;
+      width: 100%;
 
-      --primary-font-size: 0.80rem;
-      --secondary-font-size: 0.72rem;
-      --button-font-size: 0.72rem;
-      --title-font-size: 0.84rem;
+      --primary-font-size: 0.78rem;
+      --secondary-font-size: 0.70rem;
+      --button-font-size: 0.70rem;
+      --title-font-size: 0.82rem;
+    }
+
+    .league-section api-sports-widget {
+      height: 610px;
+    }
+
+    .standings-section api-sports-widget {
+      height: 304px;
     }
 
     body .modal-widget {
@@ -156,107 +113,58 @@
 
     <div class="worldcup-header">
       <div class="worldcup-title">Mundial 2026</div>
-      <div class="worldcup-subtitle">Resultados, próximos partidos y avance de grupos</div>
+      <div class="worldcup-subtitle">Resultados, próximos partidos y grupos</div>
     </div>
 
-    <div class="tabs-status">
-      <div class="tab-pill active" data-tab-label="0">Resultados</div>
-      <div class="tab-pill" data-tab-label="1">Próximos</div>
-      <div class="tab-pill" data-tab-label="2">Grupos</div>
+    <div class="section-title">Partidos / resultados / próximos</div>
+
+    <div class="league-section">
+      <api-sports-widget
+        data-type="league"
+        data-league="1"
+        data-season="2026"
+        data-tab="results"
+        data-refresh="300"
+        data-standings="true"
+        data-target-game="modal">
+      </api-sports-widget>
     </div>
 
-    <div class="widget-stage">
+    <div class="section-title">Clasificación / grupos</div>
 
-      <section class="widget-pane active" data-pane="0">
-        <div class="pane-title">Resultados / partidos en vivo</div>
-        <div class="pane-content">
-          <api-sports-widget
-            data-type="league"
-            data-league="1"
-            data-season="2026"
-            data-tab="results"
-            data-refresh="300"
-            data-target-game="modal">
-          </api-sports-widget>
-        </div>
-      </section>
-
-      <section class="widget-pane" data-pane="1">
-        <div class="pane-title">Próximos partidos</div>
-        <div class="pane-content">
-          <api-sports-widget
-            data-type="league"
-            data-league="1"
-            data-season="2026"
-            data-tab="fixtures"
-            data-refresh="300"
-            data-target-game="modal">
-          </api-sports-widget>
-        </div>
-      </section>
-
-      <section class="widget-pane" data-pane="2">
-        <div class="pane-title">Clasificación / grupos</div>
-        <div class="pane-content">
-          <api-sports-widget
-            data-type="standings"
-            data-league="1"
-            data-season="2026"
-            data-refresh="300">
-          </api-sports-widget>
-        </div>
-      </section>
-
+    <div class="standings-section">
+      <api-sports-widget
+        data-type="standings"
+        data-league="1"
+        data-season="2026"
+        data-refresh="300">
+      </api-sports-widget>
     </div>
 
-    <api-sports-widget
-      data-type="config"
-      data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
-      data-sport="football"
-      data-lang="es"
-      data-theme="white"
-      data-show-errors="true"
-      data-show-logos="true"
-      data-refresh="300"
-      data-player-injuries="false"
-      data-team-squad="false"
-      data-team-statistics="false"
-      data-player-statistics="false"
-      data-game-tab="statistics"
-      data-standings="true"
-      data-target-standings="modal"
-      data-target-game="modal"
-      data-target-player="modal"
-      data-target-team="modal"
-      data-league="1"
-      data-season="2026">
-    </api-sports-widget>
+  <api-sports-widget
+    data-type="config"
+    data-key="491d66a0e98cbe81dfa0706d2b6c5d33"
+    data-sport="football"
+    data-lang="en"
+    data-theme="white"
+    data-show-errors="true"
+    data-show-logos="true"
+    data-refresh="15"
+    data-player-injuries="true"
+    data-team-squad="true"
+    data-team-statistics="true"
+    data-player-statistics="true"
+    data-game-tab="statistics"
+    data-standings="true"
+    data-target-standings="true"
+    data-target-game="#game-content .card-body"
+    data-target-player="modal"
+    data-target-team="modal"
+    data-tab="results"
+    data-league="1"
+    data-season="2026"
+  ></api-sports-widget>
 
   </div>
-
-  <script>
-    const panes = document.querySelectorAll('.widget-pane');
-    const labels = document.querySelectorAll('.tab-pill');
-
-    let currentPane = 0;
-    const totalPanes = panes.length;
-    const rotationTime = 60000; // 1 minuto por pestaña
-
-    function showPane(index) {
-      panes.forEach(pane => pane.classList.remove('active'));
-      labels.forEach(label => label.classList.remove('active'));
-
-      const pane = document.querySelector(`[data-pane="${index}"]`);
-      const label = document.querySelector(`[data-tab-label="${index}"]`);
-
-      if (pane) pane.classList.add('active');
-      if (label) label.classList.add('active');
-    }
-
-    setInterval(() => {
-      currentPane = (currentPane + 1) % totalPanes;
-      showPane(currentPane);
-    }, rotationTime);
-  </script>
 </body>
 </html>
