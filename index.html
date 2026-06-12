@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=550, initial-scale=1.0">
-  <title>Calendario Mundial 2026</title>
+  <title>Mundial 2026</title>
 
   <script type="module" crossorigin src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
 
@@ -32,8 +32,8 @@
     }
 
     .worldcup-header {
-      height: 86px;
-      padding: 16px 18px;
+      height: 82px;
+      padding: 15px 18px;
       background: linear-gradient(135deg, #171d24 0%, #2b3540 100%);
       color: #ffffff;
       flex: 0 0 auto;
@@ -43,7 +43,6 @@
       font-size: 25px;
       line-height: 28px;
       font-weight: 900;
-      letter-spacing: -0.3px;
     }
 
     .worldcup-subtitle {
@@ -64,18 +63,10 @@
       flex: 0 0 auto;
     }
 
-    .league-section {
-      height: 640px;
+    .matches-section {
+      height: 914px;
       overflow: hidden;
       background: #ffffff;
-      flex: 0 0 auto;
-    }
-
-    .standings-section {
-      height: 270px;
-      overflow: hidden;
-      background: #ffffff;
-      border-top: 1px solid #dce3e8;
       flex: 0 0 auto;
     }
 
@@ -97,19 +88,13 @@
 
     <div class="worldcup-header">
       <div class="worldcup-title">Mundial 2026</div>
-      <div class="worldcup-subtitle">Resultados, próximos partidos y avance de grupos</div>
+      <div class="worldcup-subtitle">Resultados en vivo y próximos partidos</div>
     </div>
 
-    <div class="section-title">Partidos / resultados en vivo</div>
+    <div class="section-title">Calendario / resultados / grupos</div>
 
-    <div class="league-section">
+    <div class="matches-section">
       <api-sports-widget data-type="league"></api-sports-widget>
-    </div>
-
-    <div class="section-title">Estado de avance / grupos</div>
-
-    <div class="standings-section">
-      <api-sports-widget data-type="standings"></api-sports-widget>
     </div>
 
     <api-sports-widget
@@ -120,12 +105,11 @@
       data-theme="white"
       data-show-errors="true"
       data-show-logos="true"
-      data-refresh="300"
+      data-refresh="60"
       data-league="1"
       data-season="2026"
       data-tab="fixtures"
       data-standings="true"
-      data-target-standings="true"
       data-target-game="modal"
       data-target-player="modal"
       data-target-team="modal">
